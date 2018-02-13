@@ -27,22 +27,11 @@ const makeStore = () => {
             id: 1,
             slug: 'hello-static-blogging',
             title: 'Hello Static Blogging',
-            created_at: '06/27/2017',
+            created_at: '02/12/2018',
             meta: {
               id: 1,
               name: 'Hello Static Blogging',
               content: 'Hello Static Blogging'
-            }
-          },
-          {
-            id: 2,
-            slug: 'foo-bar',
-            title: 'Foo Bar',
-            created_at: '10/18/2016',
-            meta: {
-              id: 2,
-              name: 'Foo Bar',
-              content: 'Foo Bar'
             }
           }
         ]})

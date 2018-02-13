@@ -34,9 +34,9 @@
     },
     head () {
       return {
-        title: 'First Last',
+        title: 'Dhaval Vyas',
         meta: [
-          { hid: 'home', name: 'meta name', content: 'meta content seo goodness' }
+          { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web.' }
         ]
       }
     },

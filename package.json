@@ -1,0 +1,41 @@
+{
+  "name": "vuecms",
+  "version": "0.1.0",
+  "description": "VueJS News",
+  "author": "Andre Liem <andre.liem@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreliem/vuecms.git"
+  },
+  "private": false,
+  "dependencies": {
+    "nuxt": "latest",
+    "vue-disqus": "^2.0.3"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "devDependencies": {
+    "@nuxtjs/bootstrap-vue": "^1.0.4",
+    "@nuxtjs/font-awesome": "^1.0.1",
+    "@nuxtjs/google-analytics": "^0.2.0",
+    "@nuxtjs/markdownit": "^1.1.2",
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.15.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "marked": "^0.3.6",
+    "vue-style-loader": "^3.0.1"
+  }
+}

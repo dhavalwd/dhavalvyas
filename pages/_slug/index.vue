@@ -15,7 +15,7 @@
     head () {
       let post = this.post
       return {
-        title: 'Andre Liem',
+        title: 'Dhaval Vyas',
         meta: [
           {
             hid: post.meta.id,

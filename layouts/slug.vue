@@ -9,12 +9,6 @@
       <div class="container-fluid">
         <div class="container-fluid">
           <div class="row justify-content-center mt-3">
-            <div class="col-sm-10">
-              <h6 class="created-at" v-html="post.created_at"></h6>
-              <h3 class="mt-3" v-html="post.title"></h3>
-            </div>
-          </div>
-          <div class="row justify-content-center mt-3">
             <div class="col-sm-10 markdown">
               <nuxt />
             </div>

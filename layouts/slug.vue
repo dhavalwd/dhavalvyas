@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="container-fluid">
           <div class="row justify-content-center mt-3">
-            <div class="col-sm-10 markdown">
+            <div class="col-sm-10 markdown content">
               <nuxt />
             </div>
           </div>

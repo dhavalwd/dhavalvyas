@@ -6,11 +6,13 @@
 </template>
 <script type="text/babel">
   import Disqus from 'vue-disqus/VueDisqus.vue'
+  import Hero from '~/components/hero'
 
   export default {
     layout: 'slug',
     components: {
-      Disqus
+      Disqus,
+      Hero
     },
     head () {
       let post = this.post

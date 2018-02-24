@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_bootstrapvueplugincb143f80_f392dac0 from 'nuxt_plugin_bootstrapvueplugincb143f80_f392dac0' // Source: ./bootstrap-vue.plugin.cb143f80.js
+import nuxt_plugin_bootstrapvue_d68f504c from 'nuxt_plugin_bootstrapvue_d68f504c' // Source: ./bootstrap-vue.js
 
 
 // Component: <no-ssr>
@@ -151,7 +151,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_bootstrapvueplugincb143f80_f392dac0 === 'function') await nuxt_plugin_bootstrapvueplugincb143f80_f392dac0(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_d68f504c === 'function') await nuxt_plugin_bootstrapvue_d68f504c(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

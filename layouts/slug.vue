@@ -1,21 +1,23 @@
 <template>
-  <div class="page-slug" v-if="postExists">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12">
-          <author size="small"></author>
-        </div>
-      </div>
+  <div>
+    <navigation></navigation>
+    <hero>
+      <template slot="title">{{ post.title }}</template>
+      <template slot="subtitle">{{ post.created_at }}</template>
+    </hero>
+    <div class="page-slug" v-if="postExists">
       <div class="container-fluid">
-        <div class="row justify-content-center mt-3">
-          <div class="col-sm-10">
-            <h6 class="created-at" v-html="post.created_at"></h6>
-            <h3 class="mt-3" v-html="post.title"></h3>
+        <div class="container-fluid">
+          <div class="row justify-content-center mt-3">
+            <div class="col-sm-10">
+              <h6 class="created-at" v-html="post.created_at"></h6>
+              <h3 class="mt-3" v-html="post.title"></h3>
+            </div>
           </div>
-        </div>
-        <div class="row justify-content-center mt-3">
-          <div class="col-sm-10 markdown">
-            <nuxt />
+          <div class="row justify-content-center mt-3">
+            <div class="col-sm-10 markdown">
+              <nuxt />
+            </div>
           </div>
         </div>
       </div>
@@ -25,10 +27,14 @@
 
 <script type="text/babel">
   import Author from '~/components/author'
+  import Navigation from '~/components/navigation'
+  import Hero from '~/components/hero'
 
   export default {
     components: {
-      Author
+      Author,
+      Navigation,
+      Hero
     },
     fetch ({store, params}) {
       store.dispatch('getPosts')
@@ -75,4 +81,8 @@
   .page-slug {
     margin-top: 5em;
   }
+</style>
+
+<style lang="sass" type="text/sass">
+  @import '../node_modules/bulma/bulma';
 </style>

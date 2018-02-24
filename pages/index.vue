@@ -1,20 +1,15 @@
 <template>
   <div class="page-index">
-    <div class="container-fluid text-center">
-      <div class="row">
-        <div class="col-sm-12">
-          <author size="large"></author>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-sm-10">
-          <hr class="mt-5 mb-5"/>
-        </div>
-      </div>
-    </div>
+    <hero>
+      <template slot="title">Dhaval Vyas</template>
+      <template slot="subtitle">Front End Developer</template>
+    </hero>
 
     <div class="recent-posts container-fluid">
       <div v-for="post in posts" class="row post mb-5 justify-content-center">
+        <div class="col-sm-10">
+          <h2 class="title is-3">Recent Posts</h2>
+        </div>
         <div class="col-sm-10">
           <h6 class="created-at" v-html="post.created_at"></h6>
           <h5><router-link class="display-4 post-title" :to="{ name: 'slug', params: { slug: post.slug }}">{{post.title}}</router-link></h5>
@@ -27,10 +22,12 @@
 
 <script>
   import Author from '~/components/author'
+  import Hero from '~/components/hero'
 
   export default {
     components: {
-      Author
+      Author,
+      Hero
     },
     head () {
       return {
@@ -54,16 +51,26 @@
 <style lang="less" scoped type="text/less">
   @import '../styles/base.less';
 
-  .page-index {
-    margin-top: 5em;
+  .hero {
+    background-color: #2F2B59;
+    margin-bottom: 40px;
+  }
+
+  .subtitle {
+    color: #f3f3f3;
   }
 
 
   .recent-posts {
+    .title {
+      margin-bottom: 40px;
+    }
+
     .post-title {
       font-weight: 300;
       font-size: 1.5em;
       color: @grey;
+      font-family: 'Raleway', sans-serif, "Source Sans Pro";
       &:hover {
         text-decoration: underline;
       }

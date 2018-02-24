@@ -15,11 +15,11 @@ module.exports = {
     ]
   },
   generate: {
-    routes: [
-      '/',
-      '/hello-static-blogging',
-      '/foo-bar'
-    ]
+    routes: function () {
+      return require('fs').readdirSync('content/posts').map(function (file) {
+        return '/blog/' + require('slugify')(file.replace(/\.md$/, ''))
+      })
+    }
   },
   /*
   ** Customize the progress-bar color

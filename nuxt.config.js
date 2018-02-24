@@ -17,7 +17,7 @@ module.exports = {
   generate: {
     routes: [
       '/',
-      '/hello-static-blogging'
+      '/purpose-for-the-new-site'
     ]
   },
   /*

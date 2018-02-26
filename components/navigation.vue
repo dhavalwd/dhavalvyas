@@ -1,7 +1,7 @@
 <template>
   <!-- Navigation Bar -->
-  <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="Main_Navigation">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-main" aria-controls="navigation-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,9 +28,13 @@
   </div>
 </template>
 
-<style lang="less" scoped type="text/less">
-  @import '../styles/base.less';
-  
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
+
+  .Main_Navigation {
+      max-width: 960px;
+      margin: 0 auto;
+  }
   .navbar-light .navbar-nav .nav-link.nuxt-link-exact-active {
     border-bottom: 2px solid #2F2B59;
   }

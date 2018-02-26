@@ -3,10 +3,29 @@
     <hero>
       <template slot="title">Projects</template>
     </hero>
-    <div class="container-fluid text-center">
-      <div class="row">
-        <div class="col-sm-12">
-            <p>This is Projects page.</p>
+    <div class="projects-all">
+      <div class="columns">
+        <div class="column">
+          <card>
+            <img slot="card-image" src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+            <template slot="card-title">Project 1</template>
+            <template slot="card-subtitle"><a href="http://www.t4g.com">@T4G</a></template>
+            <div slot="card-content" class="cardContent">
+                This project was built using these frameworks and languages.<br/>
+                <a href="#">JavaScript</a><a href="#">SASS</a><a href="#">jQuery</a>.
+            </div>
+          </card>
+        </div>
+        <div class="column">
+          <card>
+            <img slot="card-image" src="https://source.unsplash.com/collection/397119/1280x960" alt="Placeholder image">
+            <template slot="card-title">Project 2</template>
+            <template slot="card-subtitle"><a href="http://investis.com">@Investis</a></template>
+            <div slot="card-content" class="cardContent">
+                This project was built using these frameworks and languages.<br/>
+                <a href="#">JavaScript</a><a href="#">SASS</a><a href="#">jQuery</a>.
+            </div>
+          </card>
         </div>
       </div>
     </div>
@@ -16,11 +35,13 @@
 <script>
   import Author from '~/components/author'
   import Hero from '~/components/hero'
+  import Card from '~/components/dv-card'
 
   export default {
     components: {
       Author,
-      Hero
+      Hero,
+      Card
     },
     head () {
       return {
@@ -40,3 +61,15 @@
     }
   }
 </script>
+
+<style lang="scss" scoped type="text/scss">
+@import '../styles/base.scss';
+
+.projects-all {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.cardContent a + a {
+  padding-left: 5px;
+}
+</style>

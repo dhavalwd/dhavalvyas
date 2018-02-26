@@ -4,18 +4,21 @@
       <template slot="title">Dhaval Vyas</template>
       <template slot="subtitle">Front End Developer</template>
     </hero>
-
-    <div class="recent-posts container-fluid">
-      <div v-for="post in posts" class="row post mb-5 justify-content-center">
-        <div class="col-sm-10">
-          <h2 class="title is-3">Recent Posts</h2>
+    <main class="main" id="main">
+      <section class="section">
+        <div class="Recent_Posts">
+          <div v-for="post in posts" class="Recent_Posts-container">
+            <div class="Recent_Posts-title">
+              <h2 class="title is-3">Recent Posts</h2>
+            </div>
+            <div class="Recent_Posts-details">
+              <h6 class="Recent_Posts-created_at" v-html="post.created_at"></h6>
+              <h5><router-link class="display-4 Recent_Posts-post_title" :to="{ name: 'slug', params: { slug: post.slug }}">{{post.title}}</router-link></h5>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-10">
-          <h6 class="created-at" v-html="post.created_at"></h6>
-          <h5><router-link class="display-4 post-title" :to="{ name: 'slug', params: { slug: post.slug }}">{{post.title}}</router-link></h5>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
   </div>
 </template>
@@ -48,8 +51,8 @@
   }
 </script>
 
-<style lang="less" scoped type="text/less">
-  @import '../styles/base.less';
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
 
   .hero {
     background-color: #2F2B59;
@@ -60,32 +63,38 @@
     color: #f3f3f3;
   }
 
+</style>
 
-  .recent-posts {
-    .title {
+<style lang="scss" scoped type="text/scss">
+$grey: #707070;
+$grey-light: #8b8b8b;
+  
+  .Recent_Posts {
+    margin: 0 auto;
+    max-width: 960px;
+    &-title {
       margin-bottom: 40px;
     }
 
-    .post-title {
+    &-post_title {
       font-weight: 300;
       font-size: 1.5em;
-      color: @grey;
-      font-family: 'Raleway', sans-serif, "Source Sans Pro";
+      color: $grey;
       &:hover {
         text-decoration: underline;
       }
     }
 
-    .created-at {
+    &-created_at {
       font-style: italic;
-      color: @grey-light;
+      color: $grey-light;
+      font-family: 'Raleway', sans-serif, "Source Sans Pro";
     }
 
-    .excerpt {
+    &-excerpt {
       font-size: 1.1em;
       line-height: 1.5em;
-      color: @grey;
+      color: $grey;
     }
   }
-
 </style>

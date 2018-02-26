@@ -16,24 +16,20 @@
   </div>
 </template>
 
-<script type="text/babel">
-  export default {
-    props: ['title', 'subtitle']
-  }
-</script>
-
-
-<style lang="less" scoped type="text/less">
-  @import '../styles/base.less';
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
 
   .hero-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
   .hero {
-    background-color: @dark-purple;
+    background-color: $dark-purple;
     margin-bottom: 40px;
   }
 

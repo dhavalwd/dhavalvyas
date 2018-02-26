@@ -1,11 +1,11 @@
 // Colour palette
-@default-color: #333;
-@red: #ee2b31;
-@grey: #707070;
-@grey-light: #8b8b8b;
-@blue: #1abccf;
-@green: #46cfa9;
-@dark-purple: #2F2B59;
+$default-color: #333;
+$red: #ee2b31;
+$grey: #707070;
+$grey-light: #8b8b8b;
+$blue: #1abccf;
+$green: #46cfa9;
+$dark-purple: #2F2B59;
 
 html
 {
@@ -31,9 +31,9 @@ body {
 }
 
 a {
-  color: @green;
+  color: $green;
   &:hover {
-    color: @blue;
+    color: $blue;
     text-decoration: none;
   }
 }
@@ -43,13 +43,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Baloo', cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Lato", "Helvetica Neue", sans-serif;
 }
 
+#main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .site-title {
   font-weight: 600;
   font-family: 'Baloo', cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Lato", "Helvetica Neue", sans-serif;
   font-size: 4em;
   color: #fff;
   a {
-    color: @default-color;
+    color: $default-color;
   }
 }
 
@@ -73,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .social {
   list-style: none;
-  color: @blue;
+  color: $blue;
   font-size: 2em;
 
   .item {

@@ -5,17 +5,15 @@
       <template slot="title">{{ post.title }}</template>
       <template slot="subtitle">{{ post.created_at }}</template>
     </hero>
-    <div class="page-slug" v-if="postExists">
-      <div class="container-fluid">
-        <div class="container-fluid">
-          <div class="row justify-content-center mt-3">
-            <div class="col-sm-10 markdown content">
-              <nuxt />
-            </div>
+    <main class="main" id="main">
+      <section class="section">
+        <div class="page-slug" v-if="postExists">
+          <div class="markdown content">
+            <nuxt />
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -48,7 +46,7 @@
   }
 </script>
 
-<style lang="less" type="text/less">
+<style lang="scss" type="text/scss">
   .markdown {
     font-size: 1.2em;
 
@@ -67,13 +65,6 @@
     pre {
       margin: 2.2em 0;
     }
-  }
-</style>
-
-<style lang="less" scoped type="text/less">
-  @import '../styles/base.less';
-  .page-slug {
-    margin-top: 5em;
   }
 </style>
 

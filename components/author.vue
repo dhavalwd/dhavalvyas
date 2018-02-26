@@ -25,8 +25,8 @@
   }
 </script>
 
-<style lang="less" scoped type="text/less">
-  @import '../styles/base.less';
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
 
   .small {
     .site-title {

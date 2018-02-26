@@ -56,7 +56,9 @@
     }
   }
 </script>
-<style type="text/less" lang="less">
+<style type="text/scss" lang="scss">
+@import '../../styles/base.scss';
+
   .post {
     pre {
       background-color: #f5f5f5;

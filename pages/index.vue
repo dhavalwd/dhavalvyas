@@ -1,13 +1,14 @@
 <template>
   <div class="page-index">
-    <hero>
+    <hero class="hero-homepage" :background-url="require('~/static/images/home-page-bg.jpg')">
+      <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/home-page-bg.jpg)` }"></div>
       <template slot="title">Dhaval Vyas</template>
       <template slot="subtitle">Front End Developer</template>
     </hero>
     <main class="main" id="main">
       <section class="section">
         <div class="Recent_Posts">
-          <div v-for="post in posts" class="Recent_Posts-container">
+          <div v-for="post in posts" :key="post.slug" class="Recent_Posts-container">
             <div class="Recent_Posts-title">
               <h2 class="title is-3">Recent Posts</h2>
             </div>
@@ -55,7 +56,7 @@
   @import '../styles/base.scss';
 
   .hero {
-    background-color: #2F2B59;
+    position: relative;
     margin-bottom: 40px;
   }
 
@@ -65,36 +66,3 @@
 
 </style>
 
-<style lang="scss" scoped type="text/scss">
-$grey: #707070;
-$grey-light: #8b8b8b;
-  
-  .Recent_Posts {
-    margin: 0 auto;
-    max-width: 960px;
-    &-title {
-      margin-bottom: 40px;
-    }
-
-    &-post_title {
-      font-weight: 300;
-      font-size: 1.5em;
-      color: $grey;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &-created_at {
-      font-style: italic;
-      color: $grey-light;
-      font-family: 'Raleway', sans-serif, "Source Sans Pro";
-    }
-
-    &-excerpt {
-      font-size: 1.1em;
-      line-height: 1.5em;
-      color: $grey;
-    }
-  }
-</style>

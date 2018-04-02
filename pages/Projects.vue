@@ -1,6 +1,7 @@
 <template>
   <div class="page-index">
-    <hero>
+    <hero class="hero-projects">
+      <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/projects-bg.jpg)` }"></div>
       <template slot="title">Projects</template>
     </hero>
     <div class="projects-all">

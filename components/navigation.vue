@@ -1,28 +1,27 @@
 <template>
   <!-- Navigation Bar -->
   <div class="Main_Navigation">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-main" aria-controls="navigation-main" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- <nuxt-link class="navbar-brand" to="/">DV</nuxt-link> -->
-
-        <div class="collapse navbar-collapse" id="navigation-main">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <nuxt-link class="nav-link" to="/">Home</nuxt-link>
-            </li>
-            <li class="nav-item">
-                <nuxt-link class="nav-link" to="/about">About Us</nuxt-link>
-            </li>
-            <li class="nav-item">
-                <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
-            </li>
-            </ul>
-            <!-- <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <nuxt-link class="navbar-item" to="/"><img src="/images/logo.png"/></nuxt-link>
+            <div class="navbar-burger burger" data-target="mainNavbar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="mainNavbar" class="navbar-menu">
+            <div class="navbar-end">
+                <nuxt-link class="navbar-item" to="/">Home</nuxt-link>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <nuxt-link class="navbar-link" to="/about">About</nuxt-link>
+                    <div class="navbar-dropdown is-boxed">
+                        <nuxt-link class="navbar-item" to="/about">About Me</nuxt-link>
+                        <a class="navbar-item" target="_blank" href="/files/resume.pdf">Resume</a>
+                    </div>
+                </div>
+                <nuxt-link class="navbar-item" to="/projects">Projects</nuxt-link>
+            </div>
         </div>
     </nav>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="page-index">
     <hero>
-      <template slot="title">About Us</template>
+      <template slot="title">About Me</template>
     </hero>
     <main class="main" id="main">
       <section class="section">

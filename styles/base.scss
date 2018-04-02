@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora/lora-italic-webfont.woff2') format('woff2'),
+       url('/fonts/Lora/lora-italic-webfont.woff') format('woff'),
+       url('/fonts/Lora/Lora-Italic.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
 // Colour palette
 $default-color: #333;
 $red: #ee2b31;

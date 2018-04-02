@@ -53,5 +53,6 @@
     height: 100%;
     z-index: 2;
     background-blend-mode: multiply;
+    background-position: center;
   }
 </style>

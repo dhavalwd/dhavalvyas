@@ -1,7 +1,7 @@
 <template>
   <!-- Navigation Bar -->
   <div class="Main_Navigation">
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-transparent is-fixed-top">
         <div class="navbar-brand">
             <nuxt-link class="navbar-item" to="/"><img src="/images/logo.png"/></nuxt-link>
             <div class="navbar-burger burger" data-target="mainNavbar">

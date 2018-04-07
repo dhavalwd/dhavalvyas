@@ -21,3 +21,17 @@
     </div>
 </template>
 
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
+
+  .card {
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      border: none;
+  }
+
+  .card-image {
+      img {
+          border-radius: 0.25rem 0.25rem 0px 0px;
+      }
+  }
+</style>

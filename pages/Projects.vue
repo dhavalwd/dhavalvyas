@@ -8,7 +8,7 @@
       <div class="columns">
         <div class="column">
           <card>
-            <img slot="card-image" src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+            <img slot="card-image" src="https://source.unsplash.com/888HU1GauzY/800x500" alt="Placeholder image">
             <template slot="card-title">Project 1</template>
             <template slot="card-subtitle"><a href="http://www.t4g.com">@T4G</a></template>
             <div slot="card-content" class="cardContent">
@@ -19,7 +19,7 @@
         </div>
         <div class="column">
           <card>
-            <img slot="card-image" src="https://source.unsplash.com/collection/397119/1280x960" alt="Placeholder image">
+            <img slot="card-image" src="https://source.unsplash.com/888HU1GauzY/800x500" alt="Placeholder image">
             <template slot="card-title">Project 2</template>
             <template slot="card-subtitle"><a href="http://investis.com">@Investis</a></template>
             <div slot="card-content" class="cardContent">

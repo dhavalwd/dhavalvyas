@@ -10,6 +10,7 @@ $default-color: #333;
 $red: #ee2b31;
 $grey: #707070;
 $grey-light: #8b8b8b;
+$grey-lighter: #ccc;
 $blue: #1abccf;
 $green: #46cfa9;
 $dark-purple: #2F2B59;
@@ -138,6 +139,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar-brand {
   width: 100px;
+}
+
+.navbar.is-fixed-top {
+  box-shadow: 0 1px 8px -1px #ccc;
 }
 
 // Recent Post

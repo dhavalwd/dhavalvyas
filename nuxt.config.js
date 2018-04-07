@@ -13,6 +13,9 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:900' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Permanent+Marker:400' }
+    ],
+    script: [
+      { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
     ]
   },
   generate: {

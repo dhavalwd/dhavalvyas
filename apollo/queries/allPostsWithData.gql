@@ -1,0 +1,21 @@
+{
+  allPosts(
+    filter: {isPublished: true},
+    orderBy: createdAt_ASC
+  ) {
+    id,
+    title,
+    slug,
+    content,
+    tags,
+    authors {
+      id,
+      name,
+      avatar {
+        id,
+        handle,
+        url
+      }
+    }
+  }
+}

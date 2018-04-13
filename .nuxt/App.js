@@ -10,9 +10,7 @@ import '../node_modules/font-awesome/css/font-awesome.css'
 
 let layouts = {
 
-  "_default": () => import('../layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m),
-
-  "_slug": () => import('../layouts/slug.vue'  /* webpackChunkName: "layouts/slug" */).then(m => m.default || m)
+  "_default": () => import('../layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
 
 }
 

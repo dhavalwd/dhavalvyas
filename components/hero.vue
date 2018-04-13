@@ -1,7 +1,6 @@
 <template>
   <!-- Navigation Bar -->
-  <div>
-    <section class="hero is-medium is-bold">
+    <section class="hero is-bold">
       <div class="hero-body">
         <slot name="background"></slot>
         <div class="hero-container">
@@ -14,7 +13,6 @@
         </div>
       </div>
     </section>
-  </div>
 </template>
 
 <style lang="scss" scoped type="text/scss">

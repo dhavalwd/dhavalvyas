@@ -1,6 +1,6 @@
 <template>
   <div class="page-index">
-    <hero class="hero-projects">
+    <hero class="hero-projects is-fullheight">
       <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/projects-bg.jpg)` }"></div>
       <template slot="title">Projects</template>
     </hero>

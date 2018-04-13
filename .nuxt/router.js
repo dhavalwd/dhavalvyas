@@ -4,9 +4,10 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _7b338769 = () => import('../pages/Projects.vue' /* webpackChunkName: "pages/Projects" */).then(m => m.default || m)
+const _d885f858 = () => import('../pages/Blog/index.vue' /* webpackChunkName: "pages/Blog/index" */).then(m => m.default || m)
 const _d4f3d4a4 = () => import('../pages/About.vue' /* webpackChunkName: "pages/About" */).then(m => m.default || m)
+const _dbf33ae8 = () => import('../pages/Blog/_slug.vue' /* webpackChunkName: "pages/Blog/_slug" */).then(m => m.default || m)
 const _3dcbd093 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
-const _1f145ce4 = () => import('../pages/_slug/index.vue' /* webpackChunkName: "pages/_slug/index" */).then(m => m.default || m)
 
 
 
@@ -61,19 +62,24 @@ export function createRouter () {
 			name: "Projects"
 		},
 		{
+			path: "/Blog",
+			component: _d885f858,
+			name: "Blog"
+		},
+		{
 			path: "/About",
 			component: _d4f3d4a4,
 			name: "About"
 		},
 		{
+			path: "/Blog/:slug",
+			component: _dbf33ae8,
+			name: "Blog-slug"
+		},
+		{
 			path: "/",
 			component: _3dcbd093,
 			name: "index"
-		},
-		{
-			path: "/:slug",
-			component: _1f145ce4,
-			name: "slug"
 		}
     ],
     

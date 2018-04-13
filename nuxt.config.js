@@ -1,3 +1,33 @@
+const { createApolloFetch } = require('apollo-fetch');
+const GRAPHCMS_API = 'https://api.graphcms.com/simple/v1/dbvblog'
+const gql = require('graphql-tag')
+const fetch = createApolloFetch({
+  uri: GRAPHCMS_API,
+});
+
+const query = `
+  query AllPosts {
+    allPosts(
+      filter: {isPublished: true}
+    ) {
+      id,
+      title,
+      slug,
+      content,
+      tags,
+      authors {
+        id,
+        name,
+        avatar {
+          id,
+          handle,
+          url
+        }
+      }
+    }
+  }
+`
+
 module.exports = {
   /*
   ** Headers of the page
@@ -19,10 +49,16 @@ module.exports = {
     ]
   },
   generate: {
-    routes: [
-      '/',
-      '/purpose-for-the-new-site'
-    ]
+    fallback: true,
+    routes: async function() {
+      const {data} = await fetch({query})
+      return data.allPosts.map((post) => {
+        return {
+          route: '/blog/' + post.slug,
+          payload: post
+        }
+      })
+    }
   },
   /*
   ** Customize the progress-bar color
@@ -72,6 +108,12 @@ module.exports = {
     '@nuxtjs/bootstrap-vue',
     '@nuxtjs/font-awesome',
     /* ['@nuxtjs/google-analytics', { ua: 'YOUR_ANALYTICS_ID' }], */
-    ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true }]
-  ]
+    ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true, injected: true }],
+    '@nuxtjs/apollo',
+  ],
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
 }

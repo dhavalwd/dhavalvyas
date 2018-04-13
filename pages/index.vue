@@ -1,6 +1,6 @@
 <template>
   <div class="page-index">
-    <hero class="hero-homepage" :background-url="require('~/static/images/home-page-bg.jpg')">
+    <hero class="hero-homepage is-fullheight" :background-url="require('~/static/images/home-page-bg.jpg')">
       <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/home-page-bg.jpg)` }"></div>
       <template slot="title">Dhaval Vyas</template>
       <template slot="subtitle">Front End Developer</template>

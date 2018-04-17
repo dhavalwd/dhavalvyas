@@ -1,10 +1,10 @@
 <template>
-  <div class="page-index">
-    <hero class="hero-projects">
+  <main class="main" id="main">
+    <hero class="hero-projects is-fullheight">
       <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/projects-bg.jpg)` }"></div>
       <template slot="title">Projects</template>
     </hero>
-    <div class="projects-all">
+    <div class="projects-all layout-fixed">
       <div class="columns">
         <div class="column">
           <card>
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

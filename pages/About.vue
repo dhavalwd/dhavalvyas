@@ -1,11 +1,10 @@
 <template>
-  <div class="page-index">
-    <hero>
-      <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
-      <template slot="title">About Me</template>
-    </hero>
     <main class="main" id="main">
-      <section class="section">
+      <hero class="is-fullheight">
+        <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
+        <template slot="title">About Me</template>
+      </hero>
+      <section class="section layout-fixed">
         <h2 class="title has-text-centered">Timeline</h2>
         <div class="timeline is-centered">
           <!-- Item 1 -->
@@ -99,7 +98,6 @@
         </div>
       </section>
     </main>
-  </div>
 </template>
 
 <script>

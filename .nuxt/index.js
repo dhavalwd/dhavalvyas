@@ -12,6 +12,8 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
+import nuxt_plugin_apolloplugin0fe8f060_9a057df8 from 'nuxt_plugin_apolloplugin0fe8f060_9a057df8' // Source: ./apollo.plugin.0fe8f060.js
+import nuxt_plugin_markdownit_6b8da5f8 from 'nuxt_plugin_markdownit_6b8da5f8' // Source: ./markdown-it.js
 import nuxt_plugin_bootstrapvue_d68f504c from 'nuxt_plugin_bootstrapvue_d68f504c' // Source: ./bootstrap-vue.js
 
 
@@ -151,6 +153,8 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
+  if (typeof nuxt_plugin_apolloplugin0fe8f060_9a057df8 === 'function') await nuxt_plugin_apolloplugin0fe8f060_9a057df8(app.context, inject)
+  if (typeof nuxt_plugin_markdownit_6b8da5f8 === 'function') await nuxt_plugin_markdownit_6b8da5f8(app.context, inject)
   if (typeof nuxt_plugin_bootstrapvue_d68f504c === 'function') await nuxt_plugin_bootstrapvue_d68f504c(app.context, inject)
   
 

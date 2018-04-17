@@ -1,30 +1,27 @@
 <template>
-<div class="page-index">
+  <main class="main" id="main">
     <hero class="is-fullheight">
       <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/blog-bg.jpg)` }"></div>
       <template slot="title">Blog</template>
     </hero>
-    <main class="main" id="main">
-      <section class="section">
-        <div class="blog">
-          <section class="container">
-            <div class="postsNavigation">
-              <template v-for="(post, key) in posts">
-                <nuxt-link class="postLink card has-shadow" tag="li" :key="key" exact :to="`/blog/${post.slug}`">
-                  <a class="title" v-text="post.title"></a>
-                  <!-- <div class="post-detail tags" v-if="post.tags" >
-                    <template v-for="(tag, index) in post.tags">
-                      <div class="tag">{{tag}}</div>
-                    </template>
-                  </div> -->
-                </nuxt-link>
-              </template>
-            </div>
-          </section>
-        </div>
-      </section>
-    </main>
-</div>
+    <section class="section layout-fixed">
+      <div class="blog">
+        <ul class="blog-container">
+          <template v-for="(post, key) in posts">
+            <nuxt-link class="blog-item" tag="li" :key="key" exact :to="`/blog/${post.slug}`">
+              <a class="blog-title title" v-text="post.title"></a>
+              <!-- <span class="subtitle" v-text="post.dateAndTime"></span> -->
+              <!-- <div class="post-detail tags" v-if="post.tags" >
+                <template v-for="(tag, index) in post.tags">
+                  <div class="tag">{{tag}}</div>
+                </template>
+              </div> -->
+            </nuxt-link>
+          </template>
+        </ul>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -49,6 +46,11 @@ export default {
       let {data} = await app.apolloProvider.defaultClient.query(
         { query: allPosts, prefetch: true }
       )
+
+      // ToDo: Convert date in readable format and pass it to data
+      // for (let i = 0; i < data.allPosts.length; i++) {
+      //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
+      // }
       return { posts: data.allPosts }
     }
   },
@@ -61,95 +63,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.message {
-  padding: 2em 0em;
-  background: none;
+<style lang="scss" type='text/scss'>
+  @import '../../styles/base.scss';
 
-  @media (min-width: 750px) {
-    padding: 4em;
-  }
-}
-.has-text-centered {
-  padding: 2em 0;
-}
-.postsNavigation {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  .blog {
 
-  .postLink {
-    margin: 1em;
-    padding: 1em 1.5em;
-    flex: 1 1 100%;
-    height: 180px;
-    // text-align: left;
-    min-width: 100px;
-    max-width: 100%;;
-    display: flex;
-    flex-flow: row wrap;
-    // background: rgba(216, 216, 216, 0.24);
-    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
-    border: none;
-    transition: .3s ease;
+    &-item {
+      float: left;
+      width: 50%;
+      padding: 0px 16px 16px 0px;
 
-    background: none;
-    box-shadow: none !important;
-    margin: 0 auto;
-    text-align: center;
-
-    .title {
-      font-size: 1.6rem;
-      margin-bottom: 0;
-      align-self: center;
-    }
-
-    .tags {
-      margin-left: auto;
-      margin-right: auto;
-
-      .tag {
-        margin: .5em;
-        font-weight: 500;
-      }
-    }
-
-    &__date {
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      font-weight: 100;
-      font-style: italic;
-    }
-    &:hover {
-    // box-shadow: 0 2px 5px 0 rgba(40, 31, 31, 0.2), 0 2px 10px 0 rgba(101, 101, 101, 0.12);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transform: scale(1.05);
       .title {
-        // font-size: 2.15em;
-        // font-weight: 400;
-        // text-decoration: underline;
+        border-bottom: 1px solid #1A263D;
+        margin: 0;
+        padding: 0px 0px 16px 0px;
+        display: block;
+        text-transform: capitalize;
       }
-    }
-
-    @media (min-width: 500px) {
-      flex: 1 1 240px;
-      max-width: 450px;
-    }
-
-    .title {
-      flex-basis: 100%;
-      // align-self: flex-start;
-      transition: .3s ease;
-
-      &:hover {
-        color: #00ad81;
-      }
-    }
-
-    .postPreview {
-      align-self: center;
     }
   }
-}
 </style>

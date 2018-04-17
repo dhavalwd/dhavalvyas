@@ -3,6 +3,7 @@ query post($slug: String!) {
     id,
     title,
     slug,
+    dateAndTime,
     content,
     tags,
     authors {

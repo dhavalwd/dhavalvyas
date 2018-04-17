@@ -1,12 +1,11 @@
 <template>
-  <div class="page-index">
-    <hero class="hero-homepage is-fullheight" :background-url="require('~/static/images/home-page-bg.jpg')">
-      <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/home-page-bg.jpg)` }"></div>
-      <template slot="title">Dhaval Vyas</template>
-      <template slot="subtitle">Front End Developer</template>
-    </hero>
-    <main class="main" id="main">
-      <section class="section">
+  <main class="main" id="main">
+      <hero class="hero-homepage is-fullheight" :background-url="require('~/static/images/home-page-bg.jpg')">
+        <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/home-page-bg.jpg)` }"></div>
+        <template slot="title">Dhaval Vyas</template>
+        <template slot="subtitle">Front End Developer</template>
+      </hero>
+      <section class="section layout-fixed">
         <div class="Recent_Posts">
           <div v-for="post in posts" :key="post.slug" class="Recent_Posts-container">
             <div class="Recent_Posts-title">
@@ -19,9 +18,7 @@
           </div>
         </div>
       </section>
-    </main>
-
-  </div>
+  </main>
 </template>
 
 <script>

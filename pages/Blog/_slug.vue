@@ -1,19 +1,17 @@
 <template>
-  <div>
-      <hero class="is-large">
-        <template slot="title">{{ post.title }}</template>
-        <template slot="subtitle">{{ post.created_at }}</template>
-      </hero>
-      <main class="main" id="main">
-          <section class="section">
-            <div class="page-slug">
-              <div class="markdown content">
-                <markdown :markdown="post.content"/>
-              </div>
-            </div>
-          </section>
-      </main>
-  </div>
+  <main class="main" id="main">
+    <hero class="is-large hero-postpage">
+      <template slot="title">{{ post.title }}</template>
+      <template slot="subtitle">{{ post.created_at }}</template>
+    </hero>
+    <section class="section layout-fixed">
+      <div class="page-slug">
+        <div class="markdown content">
+          <markdown :markdown="post.content"/>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>

@@ -1,9 +1,9 @@
-@font-face {
-  font-family: 'Lora';
-  src: url('/fonts/Lora/lora-italic-webfont.woff2') format('woff2'),
-       url('/fonts/Lora/lora-italic-webfont.woff') format('woff'),
-       url('/fonts/Lora/Lora-Italic.ttf')  format('truetype'); /* Safari, Android, iOS */
-}
+// @font-face {
+//   font-family: 'Lora';
+//   src: url('/fonts/Lora/lora-italic-webfont.woff2') format('woff2'),
+//        url('/fonts/Lora/lora-italic-webfont.woff') format('woff'),
+//        url('/fonts/Lora/Lora-Italic.ttf')  format('truetype'); /* Safari, Android, iOS */
+// }
 
 // Colour palette
 $default-color: #333;
@@ -19,6 +19,16 @@ $dark-purple: #2F2B59;
   font-family: 'Lora', "Source Sans Pro", sans-serif;
 }
 
+%font-lora-bold {
+  font-family: 'Lora', "Source Sans Pro", sans-serif;
+  font-weight: 700;
+}
+
+%font-work-sans {
+  font-family: 'Work Sans', "Source Sans Pro", sans-serif;
+}
+
+
 %font-sans-pro {
   font-family: 'Source Sans Pro', cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Lato", "Helvetica Neue", sans-serif;
 }
@@ -29,7 +39,7 @@ $dark-purple: #2F2B59;
 
 html
 {
-  @extend %font-lora;
+  @extend %font-work-sans;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -41,7 +51,7 @@ html
 
 body {
   background-color: #fcfcfc;
-  @extend %font-lora;
+  @extend %font-work-sans;
 }
 
 a {
@@ -54,10 +64,16 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  @extend %font-sans-pro;
+  @extend %font-lora-bold;
+  font-style: italic;
 }
 
-#main {
+// #main {
+//   max-width: 960px;
+//   margin: 0 auto;
+// }
+
+.layout-fixed {
   max-width: 960px;
   margin: 0 auto;
 }
@@ -80,6 +96,12 @@ h1, h2, h3, h4, h5, h6 {
   @extend %font-permanent-marker;
   .hero-homepage & {
     font-size: 6em;
+    font-style: normal;
+  }
+  .hero-postpage & {
+    @extend %font-sans-pro;
+    text-transform: capitalize;
+    font-style: normal;
   }
 }
 

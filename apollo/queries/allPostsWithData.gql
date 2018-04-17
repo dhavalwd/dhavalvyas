@@ -5,6 +5,7 @@
   ) {
     id,
     title,
+    dateAndTime,
     slug,
     content,
     tags,

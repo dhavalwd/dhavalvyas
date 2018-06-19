@@ -69,16 +69,12 @@ export default {
   .blog {
 
     &-item {
-      float: left;
-      width: 50%;
       padding: 0px 16px 16px 0px;
 
       .title {
-        border-bottom: 1px solid #1A263D;
         margin: 0;
         padding: 0px 0px 16px 0px;
         display: block;
-        text-transform: capitalize;
       }
     }
   }

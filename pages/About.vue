@@ -4,27 +4,35 @@
         <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
         <template slot="title">About Me</template>
       </hero>
+      <section class="section has-text-centered about-me-intro">
+        <div class="container">
+            <h2 class="subtitle">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</h2>
+        </div>
+      </section>
       <section class="section layout-fixed">
         <h2 class="title has-text-centered">Timeline</h2>
         <div class="timeline is-centered">
-          <!-- Item 1 -->
+          <!-- Item 6 -->
           <header class="timeline-header">
             <span class="tag is-medium is-primary">Current</span>
           </header>
           <div class="timeline-item is-primary">
             <div class="timeline-marker is-primary"></div>
             <div class="timeline-content">
-              <p class="heading">January 2016</p>
-              <p>Timeline content - Can include any HTML element</p>
+              <p class="heading">June 2018</p>
+              <p>Front End Developer at <a target="_blank" title="Opens in a new window" href="http://www.t4g.com">@T4G</a></p>
             </div>
           </div>
-          <div class="timeline-item is-warning">
-            <div class="timeline-marker is-warning is-image is-32x32">
-              <img src="http://bulma.io/images/placeholders/32x32.png">
-            </div>
+
+          <!-- Item 5 -->
+          <header class="timeline-header">
+            <span class="tag is-medium is-primary">2017</span>
+          </header>
+          <div class="timeline-item is-primary">
+            <div class="timeline-marker is-primary"></div>
             <div class="timeline-content">
-              <p class="heading">February 2016</p>
-              <p>Timeline content - Can include any HTML element</p>
+              <p class="heading">July 2017</p>
+              <p>Front End Developer at <a target="_blank" title="Opens in a new window" href="http://www.t4g.com">@T4G</a></p>
             </div>
           </div>
 
@@ -32,6 +40,15 @@
           <header class="timeline-header">
             <span class="tag is-primary">2016</span>
           </header>
+          <div class="timeline-item is-warning">
+            <div class="timeline-marker is-warning is-image is-32x32">
+              <img src="/images/wedding-couple.png">
+            </div>
+            <div class="timeline-content">
+              <p class="heading">December 2016</p>
+              <p>Got married 💍</p>
+            </div>
+          </div>
           <div class="timeline-item is-danger">
             <div class="timeline-marker is-danger is-icon">
               <i class="fa fa-flag"></i>
@@ -97,6 +114,40 @@
           </header>
         </div>
       </section>
+      <section class="section about-me-contact">
+        <h2 class="title has-text-centered">Drop me a message!</h2>
+        <form name="contact" method="POST" netlify>
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Name">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Subject</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Subject">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Textarea"></textarea>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+          </div>
+        </form>
+      </section>
     </main>
 </template>
 
@@ -120,4 +171,18 @@
 
 <style lang="scss" scoped type="text/scss">
 @import '../styles/base.scss';
+
+.about-me-intro {
+  background-color: #f2f2f2;
+  padding: 5rem 1.5rem;
+  .container {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}
+.about-me-contact {
+  padding: 5rem 1.5rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
 </style>

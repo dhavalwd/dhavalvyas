@@ -3,14 +3,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// Recursive find files in {srcDir}/store
-const files = require.context('@/store', true, /^\.\/(?!-).*\.(js)$/)
+// Recursive find files in {srcDir}/{dir.store}
+const files = require.context('@/store', true, /^\.\/(?!-)[^.]+\.(js)$/)
 const filenames = files.keys()
 
 // Store
 let storeData = {}
 
-// Check if store/index.js exists
+// Check if {dir.store}/index.js exists
 let indexFilename
 filenames.forEach((filename) => {
   if (filename.indexOf('./index.') !== -1) {

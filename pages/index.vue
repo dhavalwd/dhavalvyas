@@ -7,13 +7,22 @@
       </hero>
       <section class="section layout-fixed">
         <div class="Recent_Posts">
-          <div v-for="post in posts" :key="post.slug" class="Recent_Posts-container">
+          <div class="Recent_Posts-container">
             <div class="Recent_Posts-title">
-              <h2 class="title is-3">Recent Posts</h2>
+              <h2 class="title is-2">Recent Posts</h2>
             </div>
             <div class="Recent_Posts-details">
-              <h6 class="Recent_Posts-created_at" v-html="post.created_at"></h6>
-              <h5><router-link class="display-4 Recent_Posts-post_title" :to="{ name: 'slug', params: { slug: post.slug }}">{{post.title}}</router-link></h5>
+              <div v-for="post in posts" :key="post.slug" class="Recent_Posts-item">
+                <!-- <h6 class="Recent_Posts-created_at" v-html="post.dateAndTime"></h6> -->
+                <div class="Recent_Posts-item_title">
+                  <h5><router-link class="display-4 Recent_Posts-post_title" exact :to="`/blog/${post.slug}`">{{post.title}}</router-link></h5>
+                </div>
+                <!-- <div class="Recent_Posts-item_tags">
+                  <ul>
+                    <li v-for="tag in post.tags" :key="tag" class="Recent_Posts-item_tag">{{tag}}</li>
+                  </ul>
+                </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -22,11 +31,13 @@
 </template>
 
 <script>
+  import allPosts from '~/apollo/queries/allPosts'
   import Author from '~/components/author'
   import Hero from '~/components/hero'
 
   export default {
     components: {
+      allPosts,
       Author,
       Hero
     },
@@ -38,12 +49,18 @@
         ]
       }
     },
-    fetch ({store}) {
-      store.dispatch('getPosts')
-    },
-    computed: {
-      posts () {
-        return this.$store.state.posts
+    async asyncData ({params, payload, error, app}) {
+      if (payload) return { allPosts: payload }
+      else {
+        let {data} = await app.apolloProvider.defaultClient.query(
+          { query: allPosts, prefetch: true }
+        )
+
+        // ToDo: Convert date in readable format and pass it to data
+        // for (let i = 0; i < data.allPosts.length; i++) {
+        //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
+        // }
+        return { posts: data.allPosts }
       }
     }
   }

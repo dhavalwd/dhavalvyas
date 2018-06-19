@@ -32,7 +32,6 @@
   
   .hero {
     background-color: $dark-purple;
-    margin-bottom: 40px;
     position: relative;
   }
 

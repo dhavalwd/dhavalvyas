@@ -68,7 +68,7 @@
 
 .projects-all {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 40px auto 0px;
 }
 .cardContent a + a {
   padding-left: 5px;

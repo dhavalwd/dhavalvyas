@@ -5,6 +5,9 @@
         <template slot="title">Dhaval Vyas</template>
         <template slot="subtitle">Front End Developer</template>
       </hero>
+      <IntroBox>
+        <template slot="intro_text">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</template>
+      </IntroBox>
       <section class="section layout-fixed">
         <div class="Recent_Posts">
           <div class="Recent_Posts-container">
@@ -34,12 +37,14 @@
   import allPosts from '~/apollo/queries/allPosts'
   import Author from '~/components/author'
   import Hero from '~/components/hero'
+  import IntroBox from '~/components/intro_box'
 
   export default {
     components: {
       allPosts,
       Author,
-      Hero
+      Hero,
+      IntroBox
     },
     head () {
       return {
@@ -71,7 +76,6 @@
 
   .hero {
     position: relative;
-    margin-bottom: 40px;
   }
 
   .subtitle {

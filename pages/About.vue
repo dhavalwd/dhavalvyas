@@ -4,11 +4,9 @@
         <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
         <template slot="title">About Me</template>
       </hero>
-      <section class="section has-text-centered about-me-intro">
-        <div class="container">
-            <h2 class="subtitle">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</h2>
-        </div>
-      </section>
+      <IntroBox>
+        <template slot="intro_text">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</template>
+      </IntroBox>
       <section class="section layout-fixed">
         <h2 class="title has-text-centered">Timeline</h2>
         <div class="timeline is-centered">
@@ -153,10 +151,12 @@
 
 <script>
   import Hero from '~/components/hero'
+  import IntroBox from '~/components/intro_box'
 
   export default {
     components: {
-      Hero
+      Hero,
+      IntroBox
     },
     head () {
       return {
@@ -172,14 +172,6 @@
 <style lang="scss" scoped type="text/scss">
 @import '../styles/base.scss';
 
-.about-me-intro {
-  background-color: #f2f2f2;
-  padding: 5rem 1.5rem;
-  .container {
-    margin: 0 auto;
-    max-width: 600px;
-  }
-}
 .about-me-contact {
   padding: 5rem 1.5rem;
   margin: 0 auto;

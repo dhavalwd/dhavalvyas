@@ -374,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
       display: block;
       height: 50px;
       line-height: 50px;
-      padding: 0 calc(1em + 60px) 0 1em;
+      padding: 0 calc(1em + 50px) 0 1em;
       color: rgba(255, 255, 255, 0.7);
       font-size: 1.4rem;
       -webkit-transition: color 0.2s;
@@ -458,7 +458,7 @@ h1, h2, h3, h4, h5, h6 {
         -moz-transition: opacity 0.2s;
         transition: opacity 0.2s;
       }
-      &.active {
+      &.nuxt-link-exact-active {
         color: #ffffff;
         &::after {
           opacity: 1;

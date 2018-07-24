@@ -4,11 +4,19 @@
         <div class="container">
             <div class="content has-text-centered">
                 <p>
-                    <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                    is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                    <a target="_blank" href="https://dev.to/dhavalwd">
+                        <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Dhaval Vyas's DEV Profile" height="30" width="30" />
+                    </a>
                 </p>
             </div>
         </div>
     </div>
 </template>
+
+<style lang="scss" scoped type="text/scss">
+  @import '../styles/base.scss';
+
+  .footer {
+      padding: 3rem 1.5rem;
+  }
+</style>

@@ -8,11 +8,11 @@
         <a class='cd-nav-trigger' v-on:click='toggleMenu' href='javascript: void(0)'>
             <span aria-hidden='true'></span>
         </a>
-        <ul>
-            <li><nuxt-link @click.native='toggleMenu' class='active' to='/'></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/blog'></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/about'></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/projects'></nuxt-link></li>
+        <ul class="Main_Navigation-links">
+            <li><nuxt-link @click.native='toggleMenu' to='/'><span>Home</span></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/blog'><span>Blog</span></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/about'><span>About</span></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/projects'><span>Projects</span></nuxt-link></li>
         </ul>
 
         <span aria-hidden='true' class='stretchy-nav-bg'></span>
@@ -46,6 +46,44 @@ export default {
   max-width: 960px;
   margin: 0 auto;
   position: relative;
+
+  .cd-stretchy-nav &-links {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      &.nuxt-link-exact-active {
+        &:after {
+          opacity: 1;
+        }
+        span {
+          background-color: #9acd91;
+          color: #0e3150;
+        }
+      }
+
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+
+        span {
+          background-color: #9acd91;
+          transition: all 0.3s ease-in;
+          color: #0e3150;
+        }
+      }
+      span {
+        @extend %font-lora;
+        font-size: 0.65em;
+        background-color: #0e3150;
+        border-radius: 4px;
+        padding: 4px 16px;
+        line-height: 2;
+      }
+    }
+  }
 }
 
 .cd-stretchy-nav {

@@ -5,9 +5,16 @@
         <template slot="title">Dhaval Vyas</template>
         <template slot="subtitle">Front End Developer</template>
       </hero>
-      <IntroBox>
-        <template slot="intro_text">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</template>
-      </IntroBox>
+      <section class="home_about_me">
+          <div class="About_Me-home layout-fixed columns">
+            <div class="illustration column is-5">
+              <img src="~/assets/images/static_assets_rpm6.svg" alt="HTML, CSS, JS" />
+            </div>
+            <div class="about-me-description">
+              <p>I am Front End Developer. As you already figured out from this illustration, almost every day, my day starts and ends with Javascript, HTML, CSS. They are part of my life and I love it. ❤️</p>
+            </div>
+          </div>
+      </section>
       <section class="section layout-fixed">
         <div class="Recent_Posts">
           <div class="Recent_Posts-container">
@@ -48,7 +55,7 @@
     },
     head () {
       return {
-        title: 'Dhaval Vyas',
+        title: 'Dhaval Vyas - Front End Developer',
         meta: [
           { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web.' }
         ]
@@ -80,6 +87,22 @@
 
   .subtitle {
     color: #f3f3f3;
+  }
+
+  section.home_about_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6em 0;
+    background-color: #f7f9ff;
+  }
+
+  .about-me-description {
+    font-size: 1.5em;
+    text-align: center;
+    @extend %font-lora;
+    padding: 2em;
+    font-style: italic;
   }
 
 </style>

@@ -1,6 +1,6 @@
 # Vue Static CMS 
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.com/dhavalwd/dhavalvyas.svg?branch=master)](https://travis-ci.com/dhavalwd/dhavalvyas)
 
 created by [andreliem](https://twitter.com/andreliem) 
 

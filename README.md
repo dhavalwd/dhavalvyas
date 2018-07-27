@@ -24,7 +24,6 @@ The goal of this repository is create my personal website where I can go and ran
 - Syntax highlighting of code
 - Time to read posts
 - Social Media Sharing
-- Swap in Axios API provider for markdown
 - Runnable Code snippets
 
 ## Installation 

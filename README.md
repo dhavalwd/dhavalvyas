@@ -1,35 +1,29 @@
-# Vue Static CMS 
+# Personal Portfolio
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.com/dhavalwd/dhavalvyas.svg?branch=master)](https://travis-ci.com/dhavalwd/dhavalvyas)
 
-created by [andreliem](https://twitter.com/andreliem) 
+Created by [Dhaval Vyas](https://dhavalvyas.me) 
 
-Static Markdown blogging using VueJS + Nuxt. 
+Static Markdown blogging using [VueJS](https://vuejs.org/) + [Nuxt.js](https://nuxtjs.org/) + [GraphCMS](https://graphcms.com/)
 
-Use this setup to create a simple blogging system for your personal website.
+Use this setup to create a simple blogging system for your personal website. I am using [Netlify](https://www.netlify.com/) for hosting and automatic deployments.
 
-The goal of this repository is to provide developers with a static blogging platform that is compatible with
-the latest releases of Nuxt. 
-
-## Examples
-- [vuejsradar.com](http://vuejsradar.com)
-- [andreliem.ca](http://andreliem.ca)
-
+The goal of this repository is create my personal website where I can go and rant about Front end technologies.
 
 ## Supported Features
-- Markdown blogging
-- Locally stored posts `/content/posts`
+
+- Markdown blogging in GraphCMS
 - Example configuration in `nuxt.config.js` for loading common modules and route generation
-- Two layouts (default home page and blog posts using slug urls) 
+- One layouts
 - Integration of disqus
-- Less css (easy to swap to SASS if you prefer)
+- SASS css
 
 ## Roadmap
+
 - Site Map (SEO) 
 - Syntax highlighting of code
 - Time to read posts
 - Social Media Sharing
-- Swap in Axios API provider for markdown  
 - Runnable Code snippets
 
 ## Installation 
@@ -47,9 +41,14 @@ npm run generate
 ```
 (refer to the offical [Nuxt documentation](https://nuxtjs.org) for help)
 
+## Forked
 
+This repo originally copied form [vuecms](https://github.com/andreliem/vuecms) and then I modified to integrate it with GraphCMS to handle Blog posts in CMS instead of plain `json` file.
+
+## Notes
+
+Share your thoughts by opening an issue or send me an email dhavs1989@gmail.com
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
-

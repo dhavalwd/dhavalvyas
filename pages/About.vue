@@ -52,7 +52,7 @@
               <i class="fa fa-flag"></i>
             </div>
             <div class="timeline-content">
-              <p class="heading">Jun 2016</p>
+              <p class="heading">June 2016</p>
               <p>Programmer <a target="_blank" title="Opens in a new window" href="http://www.famousfolks.ca">@Famous Folks</a></p>
             </div>
           </div>
@@ -66,7 +66,7 @@
               <i class="fa fa-graduation-cap"></i>
             </div>
             <div class="timeline-content">
-              <p class="heading">Dec 2015</p>
+              <p class="heading">December 2015</p>
               <p>Graduated <a target="_blank" title="Opens in a new window" href="http://www.dal.ca">@Dalhousie</a></p>
             </div>
           </div>
@@ -80,7 +80,7 @@
               <i class="fa fa-briefcase"></i>
             </div>
             <div class="timeline-content">
-              <p class="heading">Oct 2013</p>
+              <p class="heading">October 2013</p>
               <p>Web Developer <a target="_blank" title="Opens in a new window" href="http://candac.ca/">@CANDAC</a></p>
             </div>
           </div>
@@ -89,7 +89,7 @@
               <i class="fa fa-book"></i>
             </div>
             <div class="timeline-content">
-              <p class="heading">Sep 2013</p>
+              <p class="heading">September 2013</p>
               <p>Student <a target="_blank" title="Opens in a new window" href="http://www.dal.ca">@Dalhousie</a> (MACS)</p>
             </div>
           </div>

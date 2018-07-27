@@ -1,4 +1,7 @@
 # Vue Static CMS 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/)
+
 created by [andreliem](https://twitter.com/andreliem) 
 
 Static Markdown blogging using VueJS + Nuxt. 

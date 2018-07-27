@@ -20,4 +20,5 @@
 
 <style lang="sass" type="text/sass">
   @import '../node_modules/bulma/bulma';
+  @import '../node_modules/bulma-timeline/dist/bulma-timeline'
 </style>

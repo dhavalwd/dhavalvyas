@@ -9,6 +9,10 @@ query post($slug: String!) {
     authors {
       id,
       name
+    },
+    coverImage {
+      id,
+      url
     }
   }
 }

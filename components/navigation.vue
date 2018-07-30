@@ -46,6 +46,7 @@ export default {
   max-width: 960px;
   margin: 0 auto;
   position: relative;
+  z-index: 999;
 
   .cd-stretchy-nav &-links {
     a {

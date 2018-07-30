@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.com/dhavalwd/dhavalvyas.svg?branch=master)](https://travis-ci.com/dhavalwd/dhavalvyas)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhavalwd/dhavalvyas.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.com/dhavalwd/dhavalvyas.svg?branch=master)](https://travis-ci.com/dhavalwd/dhavalvyas) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/93c4d217fbfc45e3be59f43468a7052f)](https://www.codacy.com/project/dhavalwd/dhavalvyas/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dhavalwd/dhavalvyas&amp;utm_campaign=Badge_Grade_Dashboard)
 
 Created by [Dhaval Vyas](https://dhavalvyas.me) 
 

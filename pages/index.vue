@@ -112,7 +112,7 @@
   }
 
   .Recent_Posts-item {
-    flex: 0 0 50%;
+    flex: 0 0 100%;
     padding: 10px;
   }
 

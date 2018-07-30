@@ -52,4 +52,9 @@
     background-blend-mode: multiply;
     background-position: center;
   }
+
+  .title, .subtitle {
+    word-break: normal;
+  }
+
 </style>

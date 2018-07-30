@@ -1,12 +1,17 @@
 {
   allPosts(
     filter: {isPublished: true},
-    orderBy: createdAt_ASC
+    orderBy: createdAt_DESC
   ) {
     id,
     title,
     slug,
     dateAndTime,
-    tags
+    tags,
+    postShortDescription,
+    coverImage {
+      id,
+      url
+    }
   }
 }

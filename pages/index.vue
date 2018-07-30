@@ -23,15 +23,12 @@
             </div>
             <div class="Recent_Posts-details">
               <div v-for="post in posts" :key="post.slug" class="Recent_Posts-item">
-                <!-- <h6 class="Recent_Posts-created_at" v-html="post.dateAndTime"></h6> -->
-                <div class="Recent_Posts-item_title">
-                  <h5><router-link class="display-4 Recent_Posts-post_title" exact :to="`/blog/${post.slug}`">{{post.title}}</router-link></h5>
-                </div>
-                <!-- <div class="Recent_Posts-item_tags">
-                  <ul>
-                    <li v-for="tag in post.tags" :key="tag" class="Recent_Posts-item_tag">{{tag}}</li>
-                  </ul>
-                </div> -->
+                <BlogPostCard>
+                  <img slot="Blog_Post_Card-image" :src=post.coverImage.url alt="Placeholder image">
+                  <template slot="Blog_Post_Card-title">{{post.title}}</template>
+                  <template slot="Blog_Post_Card-content">{{post.postShortDescription}}</template>
+                  <router-link slot="Blog_Post_Card-link" :to="{ path: `/blog/${post.slug}`}"></router-link>
+                </BlogPostCard>
               </div>
             </div>
           </div>
@@ -45,13 +42,15 @@
   import Author from '~/components/author'
   import Hero from '~/components/hero'
   import IntroBox from '~/components/intro_box'
+  import BlogPostCard from '~/components/Blog_Post_Card'
 
   export default {
     components: {
       allPosts,
       Author,
       Hero,
-      IntroBox
+      IntroBox,
+      BlogPostCard
     },
     head () {
       return {
@@ -88,7 +87,7 @@
   .subtitle {
     color: #f3f3f3;
   }
-
+  
   section.home_about_me {
     display: flex;
     justify-content: center;
@@ -103,6 +102,35 @@
     @extend %font-lora;
     padding: 2em;
     font-style: italic;
+  }
+
+  // Recent Posts
+  .Recent_Posts-details {
+    display: flex;
+    flex-flow: row; 
+    flex-wrap: wrap;
+  }
+
+  .Recent_Posts-item {
+    flex: 0 0 50%;
+    padding: 10px;
+  }
+
+  /* Tablet (medium) screens */
+  @media (min-width: 30em) {
+    .Recent_Posts-item {
+      flex: 0 0 50%;     
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 48em) {
+    .Recent_Posts-item{
+      flex: 0 0 33.33%;
+    }
+    .Recent_Posts-item:first-of-type {
+      flex: 0 0 33.33%;
+    }
   }
 
 </style>

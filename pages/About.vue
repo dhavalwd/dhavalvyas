@@ -177,4 +177,8 @@
   margin: 0 auto;
   max-width: 600px;
 }
+
+.tag {
+  font-style: italic;
+}
 </style>

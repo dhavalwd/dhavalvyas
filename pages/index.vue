@@ -114,17 +114,18 @@
   .Recent_Posts-item {
     flex: 0 0 100%;
     padding: 10px;
+    margin-bottom: 16px;
   }
 
   /* Tablet (medium) screens */
-  @media (min-width: 30em) {
+  @media (min-width: 768px) {
     .Recent_Posts-item {
       flex: 0 0 50%;     
     }
   }
 
   /* Large screens */
-  @media (min-width: 48em) {
+  @media (min-width: 960px) {
     .Recent_Posts-item{
       flex: 0 0 33.33%;
     }

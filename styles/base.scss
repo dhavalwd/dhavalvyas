@@ -39,7 +39,7 @@ $dark-purple: #2F2B59;
 
 html
 {
-  @extend %font-work-sans;
+  @extend %font-lora;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -51,7 +51,7 @@ html
 
 body {
   background-color: #fcfcfc;
-  @extend %font-work-sans;
+  @extend %font-lora;
 }
 
 a {
@@ -66,11 +66,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   @extend %font-lora-bold;
 }
-
-// #main {
-//   max-width: 960px;
-//   margin: 0 auto;
-// }
 
 .layout-fixed {
   max-width: 960px;

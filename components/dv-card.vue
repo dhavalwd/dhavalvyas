@@ -27,11 +27,20 @@
   .card {
       box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
       border: none;
+      position: relative;
   }
 
   .card-image {
       img {
           border-radius: 0.25rem 0.25rem 0px 0px;
       }
+  }
+
+  .card-link a{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
   }
 </style>

@@ -8,23 +8,23 @@
       <div class="columns">
         <div class="column">
           <card>
-            <img slot="card-image" src="https://source.unsplash.com/888HU1GauzY/800x500" alt="Placeholder image">
-            <template slot="card-title">Project 1</template>
-            <template slot="card-subtitle"><a href="http://www.t4g.com">@T4G</a></template>
+            <img slot="card-image" src="~/assets/images/kier-1.jpg" alt="Kier Group Plc">
+            <template slot="card-title"><a href="http://www.kier.co.uk/" target="_blank">Kier Group PLC</a></template>
+            <template slot="card-subtitle"><a target="_blank" href="https://www.investis.com/">@Investis</a></template>
             <div slot="card-content" class="cardContent">
-                This project was built using these frameworks and languages.<br/>
-                <a href="#">JavaScript</a><a href="#">SASS</a><a href="#">jQuery</a>.
+                <p>This project was built using below front end languages.<br/>
+                <a href="javascript: void(0)">JavaScript</a><a href="javascript: void(0)">SASS</a><a href="javascript: void(0)">jQuery</a>.</p>
             </div>
           </card>
         </div>
         <div class="column">
           <card>
-            <img slot="card-image" src="https://source.unsplash.com/888HU1GauzY/800x500" alt="Placeholder image">
-            <template slot="card-title">Project 2</template>
-            <template slot="card-subtitle"><a href="http://investis.com">@Investis</a></template>
+            <img slot="card-image" src="~/assets/images/am-1.jpg" alt="ArcelorMittal">
+            <template slot="card-title"><a href="http://corporate.arcelormittal.com/" target="_blank">ArcelorMittal Corporate</a></template>
+            <template slot="card-subtitle"><a target="_blank" href="http://investis.com">@Investis</a></template>
             <div slot="card-content" class="cardContent">
-                This project was built using these frameworks and languages.<br/>
-                <a href="#">JavaScript</a><a href="#">SASS</a><a href="#">jQuery</a>.
+                <p>This project was built using below front end languages.<br/>
+                <a href="#">JavaScript</a><a href="#">SASS</a><a href="#">jQuery</a>.</p>
             </div>
           </card>
         </div>

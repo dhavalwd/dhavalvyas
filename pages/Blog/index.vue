@@ -5,20 +5,17 @@
       <template slot="title">Blog</template>
     </hero>
     <section class="section layout-fixed">
-      <div class="blog">
-        <ul class="blog-container">
-          <template v-for="(post, key) in posts">
-            <nuxt-link class="blog-item" tag="li" :key="key" exact :to="`/blog/${post.slug}`">
-              <a class="blog-title title" v-text="post.title"></a>
-              <!-- <span class="subtitle" v-text="post.dateAndTime"></span> -->
-              <!-- <div class="post-detail tags" v-if="post.tags" >
-                <template v-for="(tag, index) in post.tags">
-                  <div class="tag">{{tag}}</div>
-                </template>
-              </div> -->
-            </nuxt-link>
-          </template>
-        </ul>
+      <div class="Blog">
+        <div class="Blog-container">
+          <div v-for="post in posts" :key="post.slug" class="Blog-item">
+            <BlogPostCard>
+              <img slot="Blog_Post_Card-image" :src=post.coverImage.url alt="Placeholder image">
+              <template slot="Blog_Post_Card-title">{{post.title}}</template>
+              <template slot="Blog_Post_Card-content">{{post.postShortDescription}}</template>
+              <router-link slot="Blog_Post_Card-link" :to="{ path: `/blog/${post.slug}`}"></router-link>
+            </BlogPostCard>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -28,12 +25,14 @@
 import allPosts from '~/apollo/queries/allPosts'
 import Author from '~/components/author'
 import Hero from '~/components/hero'
+import BlogPostCard from '~/components/Blog_Post_Card'
 
 export default {
   components: {
     allPosts,
     Author,
-    Hero
+    Hero,
+    BlogPostCard
   },
   head () {
     return {
@@ -66,7 +65,7 @@ export default {
 <style lang="scss" type='text/scss'>
   @import '../../styles/base.scss';
 
-  .blog {
+  .Blog {
 
     &-item {
       padding: 0px 16px 16px 0px;
@@ -76,6 +75,36 @@ export default {
         padding: 0px 0px 16px 0px;
         display: block;
       }
+    }
+  }
+
+  // Recent Posts
+  .Blog-container {
+    display: flex;
+    flex-flow: row; 
+    flex-wrap: wrap;
+  }
+
+  .Blog-item {
+    flex: 0 0 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* Tablet (medium) screens */
+  @media (min-width: 768px) {
+    .Blog-item {
+      flex: 0 0 50%;     
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 960px) {
+    .Blog-item{
+      flex: 0 0 33.33%;
+    }
+    .Blog-item:first-of-type {
+      flex: 0 0 33.33%;
     }
   }
 </style>

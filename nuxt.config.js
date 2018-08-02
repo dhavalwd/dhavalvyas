@@ -109,9 +109,9 @@ module.exports = {
   modules: [
     '@nuxtjs/bootstrap-vue',
     '@nuxtjs/font-awesome',
-    /* ['@nuxtjs/google-analytics', { ua: 'YOUR_ANALYTICS_ID' }], */
+    ['@nuxtjs/google-analytics', { ua: 'UA-45684435-3' }],
     ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true, injected: true }],
-    '@nuxtjs/apollo',
+    '@nuxtjs/apollo'
   ],
   apollo: {
     clientConfigs: {

@@ -8,7 +8,19 @@
       <div class="columns">
         <div class="column">
           <card>
-            <img slot="card-image" src="~/assets/images/kier-1.jpg" alt="Kier Group Plc">
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/kier-1.jpg" alt="Kier Group Plc">
+                </div>
+                <div>
+                  <img src="~/assets/images/kier-2.jpg" alt="Kier Group Plc">
+                </div>
+                <div>
+                  <img src="~/assets/images/kier-3.jpg" alt="Kier Group Plc">
+                </div>
+              </slick>
+            </no-ssr>
             <template slot="card-title"><a href="http://www.kier.co.uk/" target="_blank">Kier Group PLC</a></template>
             <template slot="card-subtitle"><a target="_blank" href="https://www.investis.com/">@Investis</a></template>
             <div slot="card-content" class="cardContent">
@@ -19,7 +31,13 @@
         </div>
         <div class="column">
           <card>
-            <img slot="card-image" src="~/assets/images/am-1.jpg" alt="ArcelorMittal">
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/am-1.jpg" alt="Kier Group Plc">
+                </div>
+              </slick>
+            </no-ssr>
             <template slot="card-title"><a href="http://corporate.arcelormittal.com/" target="_blank">ArcelorMittal Corporate</a></template>
             <template slot="card-subtitle"><a target="_blank" href="http://investis.com">@Investis</a></template>
             <div slot="card-content" class="cardContent">
@@ -52,18 +70,20 @@
         ]
       }
     },
-    fetch ({store}) {
-      store.dispatch('getPosts')
-    },
-    computed: {
-      posts () {
-        return this.$store.state.posts
+    data () {
+      return {
+        slickOptions: {
+          slidesToShow: 1,
+          rows: 0,
+          infinite: false
+        }
       }
     }
   }
 </script>
 
 <style lang="scss" scoped type="text/scss">
+@import 'slick-carousel/slick/slick.css';
 @import '../styles/base.scss';
 
 .projects-all {
@@ -72,5 +92,23 @@
 }
 .cardContent a + a {
   padding-left: 5px;
+}
+
+.column {
+  width: 100%;
+  @media (min-width:640px) {
+    width: 50%;
+  }
+}
+
+.slick-next {
+  border: none;
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  text-indent: -9999px;
 }
 </style>

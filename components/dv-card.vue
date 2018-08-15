@@ -2,9 +2,7 @@
     <!-- Card -->
     <div class="card">
         <div class="card-image">
-            <figure class="image is-4by3">
-                <slot name="card-image"></slot>
-            </figure>
+            <slot name="card-image"></slot>
         </div>
         <div class="card-content">
             <div class="media">
@@ -33,7 +31,12 @@
   .card-image {
       img {
           border-radius: 0.25rem 0.25rem 0px 0px;
+          max-width: 200px;
       }
+  }
+
+  img.slick-slide {
+      max-width: 220px;
   }
 
   .card-link a{
@@ -43,4 +46,14 @@
       width: 100%;
       height: 100%;
   }
+.slick-next {
+    border: none;
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    text-indent: -9999px;
+}
 </style>

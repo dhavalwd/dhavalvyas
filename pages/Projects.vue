@@ -75,7 +75,9 @@
         slickOptions: {
           slidesToShow: 1,
           rows: 0,
-          infinite: false
+          infinite: false,
+          prevArrow: '<a href="#" class="slick-prev"></a>',
+          nextArrow: '<a href="#" class="slick-next"></a>'
         }
       }
     }
@@ -103,7 +105,7 @@
 
 .slick-next {
   border: none;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   position: absolute;
   right: 0;
   top: 0;
@@ -111,4 +113,5 @@
   width: 40px;
   text-indent: -9999px;
 }
+
 </style>

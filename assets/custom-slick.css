@@ -1,0 +1,27 @@
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-prev:before, .slick-next:before { 
+  font-family: "slick"; 
+  font-size: 80px; 
+  line-height: 1; 
+  color: red; 
+  opacity: 0.75; 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+}   
+
+.slick-prev:before { content: "‹"; }
+.slick-next:before { content: "›"; }

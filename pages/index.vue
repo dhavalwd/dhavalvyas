@@ -15,7 +15,7 @@
             </div>
           </div>
       </section>
-      <section class="section layout-fixed">
+      <section class="section layout-fixed" v-if="posts.length > 0">
         <div class="Recent_Posts">
           <div class="Recent_Posts-container">
             <div class="Recent_Posts-title">

@@ -1,9 +1,9 @@
-const { createApolloFetch } = require('apollo-fetch');
+const { createApolloFetch } = require('apollo-fetch')
 const GRAPHCMS_API = 'https://api.graphcms.com/simple/v1/dbvblog'
 const gql = require('graphql-tag')
 const fetch = createApolloFetch({
-  uri: GRAPHCMS_API,
-});
+  uri: GRAPHCMS_API
+})
 
 const query = `
   query AllPosts {
@@ -52,7 +52,7 @@ module.exports = {
   },
   generate: {
     fallback: true,
-    routes: async function() {
+    routes: async function () {
       const {data} = await fetch({query})
       return data.allPosts.map((post) => {
         return {
@@ -105,9 +105,9 @@ module.exports = {
   css: [
   ],
   plugins: [
+    { src: '~/plugins/slick', ssr: false }
   ],
   modules: [
-    '@nuxtjs/bootstrap-vue',
     '@nuxtjs/font-awesome',
     ['@nuxtjs/google-analytics', { ua: 'UA-45684435-3' }],
     ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true, injected: true }],
@@ -117,5 +117,5 @@ module.exports = {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js'
     }
-  },
+  }
 }

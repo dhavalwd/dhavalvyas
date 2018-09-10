@@ -7,7 +7,10 @@
     <section class="section layout-fixed">
       <div class="Blog">
         <div class="Blog-container">
-          <div v-for="post in posts" :key="post.slug" class="Blog-item">
+          <div class="Blog-no_items" v-if="posts.length == 0">
+              <h2>Blog posts comings soon!</h2>
+          </div>
+          <div v-if="posts.length > 0" v-for="post in posts" :key="post.slug" class="Blog-item">
             <BlogPostCard>
               <img slot="Blog_Post_Card-image" :src=post.coverImage.url alt="Placeholder image">
               <template slot="Blog_Post_Card-title">{{post.title}}</template>

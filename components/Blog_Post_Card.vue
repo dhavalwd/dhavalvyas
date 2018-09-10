@@ -48,6 +48,10 @@
 
   .Blog_Post_Card-info {      
       padding: 30px;
+
+      .title {
+          color: $dominant;
+      }
   }
 
   .Blog_Post_Card-content {

@@ -18,5 +18,6 @@
 
   .footer {
       padding: 3rem 1.5rem;
+      background-color: rgba($accent_2, 0.05);
   }
 </style>

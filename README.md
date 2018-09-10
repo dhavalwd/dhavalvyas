@@ -51,4 +51,4 @@ Share your thoughts by opening an issue or send me an email dhavs1989@gmail.com
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[MIT](https://github.com/dhavalwd/dhavalvyas/blob/master/LICENSE)

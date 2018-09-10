@@ -5,7 +5,7 @@
         <template slot="title">Dhaval Vyas</template>
         <template slot="subtitle">Front End Developer</template>
       </hero>
-      <section class="home_about_me">
+      <section class="home_about_me background_accent1">
           <div class="About_Me-home layout-fixed columns">
             <div class="illustration column is-5">
               <img src="~/assets/images/static_assets_rpm6.svg" alt="HTML, CSS, JS" />
@@ -14,6 +14,9 @@
               <p>I am Front End Developer. As you already figured out from this illustration, almost every day, my day starts and ends with Javascript, HTML, CSS. They are part of my life and I love it. ❤️</p>
             </div>
           </div>
+      </section>
+      <section class="section layout-fixed center-me noBlogs" v-if="posts.length == 0">
+        <h2>Blog posts coming soon. :)</h2>
       </section>
       <section class="section layout-fixed" v-if="posts.length > 0">
         <div class="Recent_Posts">
@@ -31,6 +34,20 @@
                 </BlogPostCard>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section class="section layout-fixed">
+        <div class="Recent_Projects">
+          <div class="Recent_Projects-title">
+              <h2>Recent Projects</h2>
+          </div>
+          <div class="Recent_Projects-items">
+            <ul>
+              <li>MyNSLC</li>
+              <li>Wholesale</li>
+              <li>Garden Gangsters</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -93,7 +110,6 @@
     justify-content: center;
     align-items: center;
     padding: 6em 0;
-    background-color: #f7f9ff;
   }
 
   .about-me-description {
@@ -115,6 +131,12 @@
     flex: 0 0 100%;
     padding: 10px;
     margin-bottom: 16px;
+  } 
+
+  .noBlogs {
+    h2 {
+      font-size: 2rem;
+    }
   }
 
   /* Tablet (medium) screens */

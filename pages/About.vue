@@ -181,4 +181,9 @@
 .tag {
   font-style: italic;
 }
+
+.tag:not(body).is-primary {
+  background-color: $accent_2;
+}
+
 </style>

@@ -7,15 +7,15 @@
         <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-4"><slot name="card-title"></slot></p>
+                    <h2 class="title is-4"><slot name="card-title"></slot></h2>
                     <p class="subtitle is-6"><slot name="card-subtitle"></slot></p>
                 </div>
             </div>
-
             <div class="content">
                 <slot name="card-content"></slot>
             </div>
         </div>
+        <div class="card-link"><slot name="card-link"></slot></div>
     </div>
 </template>
 
@@ -46,14 +46,4 @@
       width: 100%;
       height: 100%;
   }
-.slick-next {
-    border: none;
-    background: rgba(0,0,0,0.4);
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 40px;
-    text-indent: -9999px;
-}
 </style>

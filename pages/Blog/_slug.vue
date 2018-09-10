@@ -4,7 +4,7 @@
       <template slot="title">{{ post.title }}</template>
       <template slot="subtitle">{{ post.created_at }}</template>
     </hero>
-    <section class="section layout-fixed">
+    <section class="section small-layout-fixed">
       <div class="page-slug">
         <div class="markdown content">
           <markdown :markdown="post.content"/>

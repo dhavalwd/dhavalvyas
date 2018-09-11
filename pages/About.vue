@@ -1,8 +1,9 @@
 <template>
     <main class="main" id="main">
-      <hero class="is-fullheight">
+      <hero class="is-fullheight hero-about-us">
         <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
         <template slot="title">About Me</template>
+        <!-- <nuxt-link class="button is-dominant" to="#" slot="subtitle">Resume</nuxt-link> -->
       </hero>
       <IntroBox>
         <template slot="intro_text">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</template>
@@ -17,7 +18,6 @@
           <div class="timeline-item is-primary">
             <div class="timeline-marker is-primary"></div>
             <div class="timeline-content">
-              <p class="heading">June 2018</p>
               <p>Front End Developer at <a target="_blank" title="Opens in a new window" href="http://www.t4g.com">@T4G</a></p>
             </div>
           </div>
@@ -112,39 +112,8 @@
           </header>
         </div>
       </section>
-      <section class="section about-me-contact">
-        <h2 class="title has-text-centered">Drop me a message!</h2>
-        <form name="contact" method="POST" netlify>
-          <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Name">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-              <input class="input" type="email" placeholder="Email">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Subject</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Subject">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
-            </div>
-          </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" type="submit">Submit</button>
-            </div>
-          </div>
-        </form>
+      <section class="section text-center-me background_accent1">
+        <h2 class="title is-3">Future space for my Instagram posts.</h2>
       </section>
     </main>
 </template>

@@ -8,7 +8,9 @@
       <div class="Blog">
         <div class="Blog-container">
           <div class="Blog-no_items" v-if="posts.length == 0">
-              <h2>Blog posts comings soon!</h2>
+              <h2 class="title is-2">Coming soon!</h2>
+              <p class="subtitle is-3">I am writing as fast as I can to finish my first blog.</p>
+              <img src="~/assets/images/typing.gif" alt="">
           </div>
           <div v-if="posts.length > 0" v-for="post in posts" :key="post.slug" class="Blog-item">
             <BlogPostCard>
@@ -92,6 +94,11 @@ export default {
     flex: 0 0 100%;
     padding: 10px;
     margin-bottom: 16px;
+  }
+
+  .Blog-no_items {
+    width: 100%;
+    text-align: center;
   }
 
   /* Tablet (medium) screens */

@@ -102,8 +102,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 20px;
 }
 
-.center-me {
+.text-center-me {
   text-align: center;
+}
+
+.center-me {
+  margin: 0 auto;
 }
 
 .site-title {
@@ -361,5 +365,17 @@ keyframes
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+.button.is-dominant {
+  background-color: $dominant;
+  color: white;
+  border-color: $dominant;
+}
+
+.hero-about-us {
+  .hero-container {
+    align-items: center;
   }
 }

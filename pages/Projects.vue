@@ -11,27 +11,27 @@
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
                 <div>
-                  <img src="~/assets/images/kier-1.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/can-1.jpg" alt="CANDAC">
                 </div>
                 <div>
-                  <img src="~/assets/images/kier-2.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/can-2.jpg" alt="CANDAC">
                 </div>
                 <div>
-                  <img src="~/assets/images/kier-3.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/can-3.jpg" alt="CANDAC">
                 </div>
               </slick>
             </no-ssr>
-            <template slot="card-title">Kier Group PLC</template>
-            <template slot="card-subtitle">@Investis (2011)</template>
-            <div slot="card-content" class="cardContent">
+            <template slot="card-title">CANDAC</template>
+            <template slot="card-subtitle">@CANDAC (2014)</template>
+            <!-- <div slot="card-content" class="cardContent">
                 <ul>
-                  <li>In-house CMS developed on Sitecore</li>
+                  <li>Druapl Custom Theme</li>
                   <li>JavaScript</li>
                   <li>SASS</li>
                   <li>jQuery</li>
                 </ul>
-            </div>
-            <template slot="card-link"><a href="http://www.kier.co.uk/" target="_blank"></a></template>
+            </div> -->
+            <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
           </card>
         </div>
         <div class="column">
@@ -39,27 +39,85 @@
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
                 <div>
-                  <img src="~/assets/images/am-1.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/kier-1.jpg" alt="Kier Group Plc">
                 </div>
                 <div>
-                  <img src="~/assets/images/am-2.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/kier-2.jpg" alt="Kier Group Plc">
                 </div>
                 <div>
-                  <img src="~/assets/images/am-3.jpg" alt="Kier Group Plc">
+                  <img src="~/assets/images/projects/kier-3.jpg" alt="Kier Group Plc">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Kier Group PLC</template>
+            <template slot="card-subtitle">@Investis (2011)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Sitecore CMS</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://www.kier.co.uk/" target="_blank"></a></template>
+          </card>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/am-1.jpg" alt="Kier Group Plc">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/am-2.jpg" alt="Kier Group Plc">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/am-3.jpg" alt="Kier Group Plc">
                 </div>
               </slick>
             </no-ssr>
             <template slot="card-title">ArcelorMittal Corporate</template>
             <template slot="card-subtitle">@Investis (2010)</template>
-            <div slot="card-content" class="cardContent">
+            <!-- <div slot="card-content" class="cardContent">
                 <ul>
-                  <li>In-house CMS developed on Sitecore</li>
+                  <li>Sitecore CMS</li>
                   <li>JavaScript</li>
                   <li>SASS</li>
                   <li>jQuery</li>
                 </ul>
-            </div>
+            </div> -->
             <template slot="card-link"><a href="http://corporate.arcelormittal.com/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/ct-1.jpg" alt="CareTech Community Service">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/ct-2.jpg" alt="CareTech Community Service">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/ct-3.jpg" alt="CareTech Community Service">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Caretech</template>
+            <template slot="card-subtitle">@Investis (2011)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Sitecore CMS</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
           </card>
         </div>
       </div>

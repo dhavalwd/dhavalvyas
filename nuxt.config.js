@@ -72,7 +72,7 @@ module.exports = {
   build: {
     loaders: [
       {
-        test: /\.(png|jpe?g|gif|svg)$/,
+        test: /\.(pdf|png|jpe?g|gif|svg)$/,
         loader: 'url-loader',
         query: {
           limit: 1000, // 1KO

@@ -125,7 +125,7 @@
       return {
         title: 'Dhaval Vyas - Front End Developer',
         meta: [
-          { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web.' }
+          { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web. This is portfolio of Dhaval Vyas.' }
         ]
       }
     },

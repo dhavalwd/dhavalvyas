@@ -131,7 +131,7 @@
       return {
         title: 'About | Dhaval Vyas',
         meta: [
-          { hid: 'about', name: 'about', content: 'About Dhaval Vyas.' }
+          { hid: 'about', name: 'about', content: 'This is about me page of Dhaval Vyas. This gives an idea about Dhaval Vyas\'s timeline.' }
         ]
       }
     }

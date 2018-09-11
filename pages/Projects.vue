@@ -140,7 +140,7 @@
       return {
         title: 'Portfolio | Dhaval Vyas',
         meta: [
-          { hid: 'portfolio', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web.' }
+          { hid: 'portfolio', name: 'dhaval vyas', content: 'This is portfolio page of Dhaval Vyas. Portfolio page shows all projects of Dhaval Vyas.' }
         ]
       }
     },

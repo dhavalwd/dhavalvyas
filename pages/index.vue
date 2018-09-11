@@ -11,12 +11,9 @@
               <img src="~/assets/images/static_assets_rpm6.svg" alt="HTML, CSS, JS" />
             </div>
             <div class="about-me-description">
-              <p>I am Front End Developer. As you already figured out from this illustration, almost every day, my day starts and ends with Javascript, HTML, CSS. They are part of my life and I love it. ❤️</p>
+              <p>I am Front End Developer. As you already figured out from this illustration, almost every day, my day starts and ends with JavaScript, HTML, CSS. They are part of my life and I love it. ❤️</p>
             </div>
           </div>
-      </section>
-      <section class="section layout-fixed center-me noBlogs" v-if="posts.length == 0">
-        <h2>Blog posts coming soon. :)</h2>
       </section>
       <section class="section layout-fixed" v-if="posts.length > 0">
         <div class="Recent_Posts">
@@ -40,14 +37,67 @@
       <section class="section layout-fixed">
         <div class="Recent_Projects">
           <div class="Recent_Projects-title">
-              <h2>Recent Projects</h2>
+              <h2 class="title is-2">Recent Projects</h2>
           </div>
           <div class="Recent_Projects-items">
-            <ul>
-              <li>MyNSLC</li>
-              <li>Wholesale</li>
-              <li>Garden Gangsters</li>
-            </ul>
+            <div class="columns">
+              <div class="column">
+                <card>
+                  <no-ssr slot="card-image">
+                    <slick ref="slick" :options="slickOptions">
+                      <div>
+                        <img src="~/assets/images/projects/can-1.jpg" alt="CANDAC">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/can-2.jpg" alt="CANDAC">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/can-3.jpg" alt="CANDAC">
+                      </div>
+                    </slick>
+                  </no-ssr>
+                  <template slot="card-title">CANDAC</template>
+                  <template slot="card-subtitle">@CANDAC (2014)</template>
+                  <!-- <div slot="card-content" class="cardContent">
+                      <ul>
+                        <li>Druapl Custom Theme</li>
+                        <li>JavaScript</li>
+                        <li>SASS</li>
+                        <li>jQuery</li>
+                      </ul>
+                  </div> -->
+                  <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
+                </card>
+              </div>
+              <div class="column">
+                <card>
+                  <no-ssr slot="card-image">
+                    <slick ref="slick" :options="slickOptions">
+                      <div>
+                        <img src="~/assets/images/projects/kier-1.jpg" alt="Kier Group Plc">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/kier-2.jpg" alt="Kier Group Plc">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/kier-3.jpg" alt="Kier Group Plc">
+                      </div>
+                    </slick>
+                  </no-ssr>
+                  <template slot="card-title">Kier Group PLC</template>
+                  <template slot="card-subtitle">@Investis (2011)</template>
+                  <!-- <div slot="card-content" class="cardContent">
+                      <ul>
+                        <li>Sitecore CMS</li>
+                        <li>JavaScript</li>
+                        <li>SASS</li>
+                        <li>jQuery</li>
+                      </ul>
+                  </div> -->
+                  <template slot="card-link"><a href="http://www.kier.co.uk/" target="_blank"></a></template>
+                </card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -60,6 +110,7 @@
   import Hero from '~/components/hero'
   import IntroBox from '~/components/intro_box'
   import BlogPostCard from '~/components/Blog_Post_Card'
+  import Card from '~/components/dv-card'
 
   export default {
     components: {
@@ -67,13 +118,14 @@
       Author,
       Hero,
       IntroBox,
-      BlogPostCard
+      BlogPostCard,
+      Card
     },
     head () {
       return {
         title: 'Dhaval Vyas - Front End Developer',
         meta: [
-          { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web.' }
+          { hid: 'home', name: 'dhaval vyas', content: 'Dhaval Vyas is a Front End developer. He creates for the web. This is portfolio of Dhaval Vyas.' }
         ]
       }
     },
@@ -90,11 +142,23 @@
         // }
         return { posts: data.allPosts }
       }
+    },
+    data () {
+      return {
+        slickOptions: {
+          slidesToShow: 1,
+          rows: 0,
+          infinite: false,
+          prevArrow: '<a href="#" class="slick-prev"></a>',
+          nextArrow: '<a href="#" class="slick-next"></a>'
+        }
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped type="text/scss">
+  @import 'slick-carousel/slick/slick.css';
   @import '../styles/base.scss';
 
   .hero {
@@ -139,6 +203,13 @@
     }
   }
 
+  .column {
+    width: 100%;
+    @media (min-width:640px) {
+      width: 33%;
+    }
+  }
+
   /* Tablet (medium) screens */
   @media (min-width: 768px) {
     .Recent_Posts-item {
@@ -153,6 +224,14 @@
     }
     .Recent_Posts-item:first-of-type {
       flex: 0 0 33.33%;
+    }
+  }
+
+  // Recent Projects
+  .Recent_Projects-title {
+    padding: 24px 0;
+    h2 {
+      text-align: center;
     }
   }
 

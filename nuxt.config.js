@@ -109,7 +109,7 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/font-awesome',
-    ['@nuxtjs/google-analytics', { ua: 'UA-45684435-3' }],
+    ['@nuxtjs/google-analytics', { ua: 'UA-45684435-2' }],
     ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true, injected: true }],
     '@nuxtjs/apollo'
   ],

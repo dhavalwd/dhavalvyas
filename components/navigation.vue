@@ -43,7 +43,6 @@ export default {
 @import '../styles/base.scss';
 
 .Main_Navigation {
-  max-width: 1180px;
   margin: 0 auto;
   position: relative;
   z-index: 999;

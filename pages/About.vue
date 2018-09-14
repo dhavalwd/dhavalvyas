@@ -3,7 +3,7 @@
       <hero class="is-fullheight hero-about-us">
         <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/about-me-bg.jpg)` }"></div>
         <template slot="title">About Me</template>
-        <!-- <nuxt-link class="button is-dominant" to="#" slot="subtitle">Resume</nuxt-link> -->
+        <a class="button is-dominant" target="_blank" title="PDF, opens in a new window" href="/files/resume.pdf" slot="subtitle">Resume</a>
       </hero>
       <IntroBox>
         <template slot="intro_text">I create for the web and make the web stylish. I create elegant and responsive web interfaces using modern web technologies.</template>

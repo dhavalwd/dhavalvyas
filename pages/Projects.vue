@@ -11,6 +11,192 @@
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
                 <div>
+                  <img src="~/assets/images/projects/crombie-1.jpg" alt="Crombie REIT">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/crombie-2.jpg" alt="Crombie REIT">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Crombie REIT</template>
+            <template slot="card-subtitle">@T4G (2017)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://crombie.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/jazz-1.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-2.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-3.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-4.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-5.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-6.jpg" alt="Jazz Aviation">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/jazz-7.jpg" alt="Jazz Aviation">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Jazz Aviation LP</template>
+            <template slot="card-subtitle">@Famous Folks (2016)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://flyjazz.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/gg-1.jpg" alt="Garden Gangsters">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/gg-2.jpg" alt="Garden Gangsters">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/gg-3.jpg" alt="Garden Gangsters">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/gg-4.jpg" alt="Garden Gangsters">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Garden Gangsters</template>
+            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://gardengangsters.com/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/cf-1.jpg" alt="Cadilac Fairview">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/cf-2.jpg" alt="Cadilac Fairview">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/cf-3.jpg" alt="Cadilac Fairview">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/cf-4.jpg" alt="Cadilac Fairview">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Cadilac Fairview</template>
+            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="https://cfoffice.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/grandpre-1.jpg" alt="Grand Pre 2017">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/grandpre-2.jpg" alt="Grand Pre 2017">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/grandpre-3.jpg" alt="Grand Pre 2017">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Grand Pre 2017</template>
+            <template slot="card-subtitle">@Famous Folks (2016)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://grandpre2017.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/bem-1.jpg" alt="Blue Elephant Marketing & Design">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/bem-2.jpg" alt="Blue Elephant Marketing & Design">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/bem-3.jpg" alt="Blue Elephant Marketing & Design">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/bem-4.jpg" alt="Blue Elephant Marketing & Design">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Blue Elephant Marketing & Design</template>
+            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <!-- <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Druapl Custom Theme</li>
+                  <li>JavaScript</li>
+                  <li>SASS</li>
+                  <li>jQuery</li>
+                </ul>
+            </div> -->
+            <template slot="card-link"><a href="http://bemarketing.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
                   <img src="~/assets/images/projects/can-1.jpg" alt="CANDAC">
                 </div>
                 <div>

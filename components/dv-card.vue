@@ -14,8 +14,8 @@
             <div class="content">
                 <slot name="card-content"></slot>
             </div>
+            <div class="card-link"><slot name="card-link"></slot></div>
         </div>
-        <div class="card-link"><slot name="card-link"></slot></div>
     </div>
 </template>
 
@@ -40,6 +40,10 @@
 
   img.slick-slide {
       max-width: 220px;
+  }
+
+  .card-content {
+      position: relative;
   }
 
   .card-link a{

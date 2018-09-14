@@ -117,7 +117,7 @@
                   <li>jQuery</li>
                 </ul>
             </div> -->
-            <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
+            <template slot="card-link"><a href="https://www.caretech-uk.com/" target="_blank"></a></template>
           </card>
         </div>
       </div>

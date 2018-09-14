@@ -23,9 +23,12 @@
   @import '../styles/base.scss';
 
   .card {
-      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
       border: none;
       position: relative;
+      &:hover {
+          box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      }
   }
 
   .card-image {

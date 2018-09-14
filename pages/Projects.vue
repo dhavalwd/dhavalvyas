@@ -5,8 +5,8 @@
       <template slot="title">Portfolio</template>
     </hero>
     <div class="projects-all layout-fixed">
-      <div class="columns">
-        <div class="column">
+      <div class="Project-columns">
+        <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -34,7 +34,7 @@
             <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
           </card>
         </div>
-        <div class="column">
+        <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -62,9 +62,7 @@
             <template slot="card-link"><a href="http://www.kier.co.uk/" target="_blank"></a></template>
           </card>
         </div>
-      </div>
-      <div class="columns">
-        <div class="column">
+        <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -92,7 +90,7 @@
             <template slot="card-link"><a href="http://corporate.arcelormittal.com/" target="_blank"></a></template>
           </card>
         </div>
-        <div class="column">
+        <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -171,10 +169,19 @@
   padding-left: 5px;
 }
 
-.column {
+.Project-columns {
+  display: flex;
+  flex-flow: row; 
+  flex-wrap: wrap;
+}
+
+.Project-column {
   width: 100%;
-  @media (min-width:640px) {
+  padding: 20px 30px;
+
+  @media (min-width: 640px) {
     width: 50%;
+    padding: 0 24px 32px;
   }
 }
 

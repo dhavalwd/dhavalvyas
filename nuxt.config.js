@@ -68,8 +68,8 @@ module.exports = {
   loading: { color: '#2F2B59' },
   loadingIndicator: {
     name: 'folding-cube',
-    color: '#3B8070',
-    background: 'white'
+    color: '#0e3150',
+    background: '#f7f9ff'
   },
   /*
   ** Build configuration

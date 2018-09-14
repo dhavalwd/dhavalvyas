@@ -28,7 +28,7 @@
                   <li>jQuery</li>
                 </ul>
             </div> -->
-            <template slot="card-link"><a href="http://crombie.ca/" target="_blank"></a></template>
+            <template slot="card-link"><a href="http://crombie.ca/properties" target="_blank"></a></template>
           </card>
         </div>
         <div class="Project-column">

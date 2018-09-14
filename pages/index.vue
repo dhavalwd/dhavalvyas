@@ -40,8 +40,8 @@
               <h2 class="title is-2">Recent Projects</h2>
           </div>
           <div class="Recent_Projects-items">
-            <div class="columns">
-              <div class="column">
+            <div class="Recent_Project-columns">
+              <div class="Recent_Project-column">
                 <card>
                   <no-ssr slot="card-image">
                     <slick ref="slick" :options="slickOptions">
@@ -69,7 +69,7 @@
                   <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
                 </card>
               </div>
-              <div class="column">
+              <div class="Recent_Project-column">
                 <card>
                   <no-ssr slot="card-image">
                     <slick ref="slick" :options="slickOptions">
@@ -232,6 +232,22 @@
     padding: 24px 0;
     h2 {
       text-align: center;
+    }
+  }
+
+  .Recent_Project-columns {
+    display: flex;
+    flex-flow: row; 
+    flex-wrap: wrap;
+  }
+
+  .Recent_Project-column {
+    width: 100%;
+    padding: 20px 30px;
+
+    @media (min-width: 640px) {
+      width: 50%;
+      padding: 0 24px 32px;
     }
   }
 

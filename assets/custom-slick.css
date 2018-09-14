@@ -5,6 +5,10 @@
   transform: translateY(-50%);
 }
 
+.slick-disabled {
+  opacity: 0.3;
+}
+
 .slick-next {
   right: 10px;
 }

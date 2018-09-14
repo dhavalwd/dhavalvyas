@@ -47,7 +47,7 @@ This repo originally copied form [vuecms](https://github.com/andreliem/vuecms) a
 
 ## Notes
 
-Share your thoughts by opening an issue or send me an email dhavs1989@gmail.com
+Share your thoughts by opening an issue or send me an email hello@dhavalvyas.me
 
 ## License
 

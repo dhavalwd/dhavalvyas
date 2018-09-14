@@ -66,6 +66,11 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#2F2B59' },
+  loadingIndicator: {
+    name: 'folding-cube',
+    color: '#0e3150',
+    background: '#f7f9ff'
+  },
   /*
   ** Build configuration
   */

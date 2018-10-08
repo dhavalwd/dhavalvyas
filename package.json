@@ -11,7 +11,7 @@
   "private": false,
   "dependencies": {
     "@nuxtjs/apollo": "^3.0.6",
-    "apollo-cache-inmemory": "^1.1.12",
+    "apollo-cache-inmemory": "^1.3.5",
     "apollo-fetch": "^0.7.0",
     "apollo-link": "^1.2.1",
     "apollo-link-http": "^1.5.3",

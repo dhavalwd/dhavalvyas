@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '../node_modules/font-awesome/css/font-awesome.css'
+import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
 
 let layouts = {

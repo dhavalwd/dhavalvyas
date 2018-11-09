@@ -16,6 +16,7 @@ import nuxt_plugin_apolloplugin0fe8f060_9a057df8 from 'nuxt_plugin_apolloplugin0
 import nuxt_plugin_markdownit_6b8da5f8 from 'nuxt_plugin_markdownit_6b8da5f8' // Source: ./markdown-it.js
 import nuxt_plugin_googleanalytics_1596fa9b from 'nuxt_plugin_googleanalytics_1596fa9b' // Source: ./google-analytics.js (ssr: false)
 import nuxt_plugin_slick_3376483c from 'nuxt_plugin_slick_3376483c' // Source: ../plugins/slick (ssr: false)
+import nuxt_plugin_fontawesome_b8db358e from 'nuxt_plugin_fontawesome_b8db358e' // Source: ../plugins/fontawesome.js
 
 
 // Component: <no-ssr>
@@ -156,6 +157,7 @@ async function createApp (ssrContext) {
   
   if (typeof nuxt_plugin_apolloplugin0fe8f060_9a057df8 === 'function') await nuxt_plugin_apolloplugin0fe8f060_9a057df8(app.context, inject)
   if (typeof nuxt_plugin_markdownit_6b8da5f8 === 'function') await nuxt_plugin_markdownit_6b8da5f8(app.context, inject)
+  if (typeof nuxt_plugin_fontawesome_b8db358e === 'function') await nuxt_plugin_fontawesome_b8db358e(app.context, inject)
   
   if (process.browser) { 
     if (typeof nuxt_plugin_googleanalytics_1596fa9b === 'function') await nuxt_plugin_googleanalytics_1596fa9b(app.context, inject)

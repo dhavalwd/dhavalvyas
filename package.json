@@ -10,6 +10,9 @@
   },
   "private": false,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
     "@nuxtjs/apollo": "^3.0.6",
     "apollo-cache-inmemory": "^1.1.12",
     "apollo-fetch": "^0.7.0",
@@ -35,7 +38,7 @@
     "precommit": "npm run lint"
   },
   "devDependencies": {
-    "@nuxtjs/font-awesome": "^1.0.1",
+    "@nuxtjs/font-awesome": "^1.0.3",
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/markdownit": "^1.2.0",
     "babel-eslint": "^8.2.6",

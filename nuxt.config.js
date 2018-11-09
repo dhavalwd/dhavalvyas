@@ -108,12 +108,13 @@ module.exports = {
     }
   },
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   plugins: [
-    { src: '~/plugins/slick', ssr: false }
+    { src: '~/plugins/slick', ssr: false },
+    '~/plugins/fontawesome.js'
   ],
   modules: [
-    '@nuxtjs/font-awesome',
     ['@nuxtjs/google-analytics', { ua: 'UA-45684435-2' }],
     ['@nuxtjs/markdownit', { html: true, linkify: true, breaks: true, injected: true }],
     '@nuxtjs/apollo'

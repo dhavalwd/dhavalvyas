@@ -9,10 +9,10 @@
             <span aria-hidden='true'></span>
         </a>
         <ul class="Main_Navigation-links">
-            <li><nuxt-link @click.native='toggleMenu' to='/'><span>Home</span></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/blog'><span>Blog</span></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/about'><span>About</span></nuxt-link></li>
-            <li><nuxt-link @click.native='toggleMenu' to='/projects'><span>Projects</span></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/'><span>Home</span> <font-awesome-icon icon="home" /></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/blog'><span>Blog</span> <font-awesome-icon icon="book" /></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/about'><span>About</span> <font-awesome-icon icon="user" /></nuxt-link></li>
+            <li><nuxt-link @click.native='toggleMenu' to='/projects'><span>Projects</span> <font-awesome-icon icon="th-large" /></nuxt-link></li>
         </ul>
 
         <span aria-hidden='true' class='stretchy-nav-bg'></span>
@@ -250,9 +250,6 @@ export default {
     z-index: 2;
     padding: 60px 0 0;
     visibility: hidden;
-    -webkit-transition: visibility 0.3s;
-    -moz-transition: visibility 0.3s;
-    transition: visibility 0.3s;
     text-align: right;
     a {
       position: relative;
@@ -265,22 +262,6 @@ export default {
       -webkit-transition: color 0.2s;
       -moz-transition: color 0.2s;
       transition: color 0.2s;
-      &::after {
-        /* navigation item icons */
-        content: '';
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        right: 22px;
-        top: 50%;
-        -webkit-transform: translateY(-50%) scale(0);
-        -moz-transform: translateY(-50%) scale(0);
-        -ms-transform: translateY(-50%) scale(0);
-        -o-transform: translateY(-50%) scale(0);
-        transform: translateY(-50%) scale(0);
-        opacity: .6;
-        background: url(~assets/images/cd-sprite-1.svg) no-repeat 0 0;
-      }
       &::before {
         /* line visible next to the active navigation item */
         content: '';
@@ -296,23 +277,18 @@ export default {
         transform: translateX(3px) translateY(-50%) scaleY(0);
         background-color: #ffffff;
       }
-    }
-    li {
-      &:first-of-type a::after {
-        /* change custom icon using image sprites */
-        background-position: -32px 0;
+
+      svg {
+        position: absolute;
+        right: 20px;
+        top: 16px;
+        font-size: 18px;
       }
-      &:nth-of-type(2) a::after {
-        background-position: -64px 0;
-      }
-      &:nth-of-type(3) a::after {
-        background-position: -48px 0;
-      }
-      &:nth-of-type(4) a::after {
-        background-position: 0 0;
-      }
-      &:nth-of-type(5) a::after {
-        background-position: -16px 0;
+
+      &:hover {
+        svg {
+          color: white;
+        }
       }
     }
     span {
@@ -357,6 +333,40 @@ export default {
           -webkit-transition: -webkit-transform 0.15s 0.3s;
           -moz-transition: -moz-transform 0.15s 0.3s;
           transition: transform 0.15s 0.3s;
+        }
+      }
+    }
+    > li {
+      &:first-child {
+        a {
+          svg {
+            top: 16px;
+            right: 18px;
+          }
+        }
+      }
+      &:nth-child(2) {
+        a {
+          svg {
+            top: 18px;
+            right: 20px;
+          }
+        }
+      }
+      &:nth-child(3) {
+        a {
+          svg {
+            top: 16px;
+            right: 20px;
+          }
+        }
+      }
+      &:nth-child(4) {
+        a {
+          svg {
+            top: 16px;
+            right: 20px;
+          }
         }
       }
     }

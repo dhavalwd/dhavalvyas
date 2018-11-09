@@ -44,6 +44,22 @@
  */
 
 /*!
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+/**
+ * vuex v3.0.1
+ * (c) 2017 Evan You
+ * @license MIT
+ */
+
+/*!
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+/*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
@@ -52,12 +68,6 @@
  */
 
 /*! https://mths.be/punycode v1.4.1 by @mathias */
-
-/**
- * vuex v3.0.1
- * (c) 2017 Evan You
- * @license MIT
- */
 
 /**
  * vue-meta v1.5.2

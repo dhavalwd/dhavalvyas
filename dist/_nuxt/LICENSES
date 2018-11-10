@@ -67,8 +67,6 @@
  * @version   v4.2.4+314e4831
  */
 
-/*! https://mths.be/punycode v1.4.1 by @mathias */
-
 /**
  * vue-meta v1.5.2
  * (c) 2018 Declan de Wet & Atinux
@@ -80,3 +78,5 @@ object-assign
 (c) Sindre Sorhus
 @license MIT
 */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */

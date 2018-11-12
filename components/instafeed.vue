@@ -10,6 +10,7 @@
 
 <script type='text/babel'>
 import axios from 'axios'
+import _ from 'lodash'
 
 export default {
   name: 'instafeed',
@@ -49,9 +50,45 @@ export default {
                 if (response.status === 200) {
                     if (response.status === 200) {
                         this.feeds = response.data.data
+                        this.manageTags()
+                        // console.log("Inside User Feed", this.feeds[0].caption.text)
                     }
                 }
             })
+    },
+    manageTags () {
+        _.forEach(this.feeds, (value, key) => {
+            var newCaption = [];
+            var captionParts;
+
+            if (this.feeds[key].caption && this.feeds[key].caption.text && this.feeds[key].caption.text.length > 0) {
+                captionParts = this.feeds[key].caption.text.split(' ');
+                for (var i=0; i < captionParts.length ; i++) {
+                    if (captionParts[i].charAt(0) !== '#') {
+                        newCaption.push(captionParts[i])
+                    }
+                }
+            }
+            this.feeds[key].caption.newCaption = newCaption.join(' ')
+        });
+
+
+        // Add links for the tags
+        _.forEach(this.feeds, (value, key) => {
+            var tagLinks = [];
+
+            if (this.feeds[key].tags && this.feeds[key].tags.length > 0) {
+                for (var i=0; i < this.feeds[key].tags.length ; i++) {
+                    var singleTag = {}
+                    singleTag.tag = this.feeds[key].tags[i]
+                    singleTag.link = `https://www.instagram.com/explore/tags/${this.feeds[key].tags[i]}`
+                    tagLinks.push(singleTag)
+                }
+            }
+            this.feeds[key].tagLinks = tagLinks
+        });
+
+        console.log("Feed", this.feeds)
     }
   }
 }

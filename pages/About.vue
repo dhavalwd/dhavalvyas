@@ -128,7 +128,8 @@
                       </div>
                       <div class="card-content">
                         <div class="content">
-                          <p>{{ props.feed.caption.text }}</p>
+                          <p>{{ props.feed.caption.newCaption }}</p>
+                          <p><a :href=tag.link v-for="(tag, index) in props.feed.tagLinks" target="_blank" :key=index>#{{ tag.tag }} </a></p>
                           <p v-if=props.feed.location><font-awesome-icon icon="map-marker-alt" />&nbsp;{{ props.feed.location.name }}</p>
                         </div>
                       </div>

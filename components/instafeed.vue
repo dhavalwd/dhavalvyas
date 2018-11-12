@@ -10,7 +10,6 @@
 
 <script type='text/babel'>
 import axios from 'axios'
-import _ from 'lodash'
 
 export default {
   name: 'instafeed',
@@ -49,8 +48,6 @@ export default {
                 if (response.status === 400) this.error = response.meta
                 if (response.status === 200) {
                     if (response.status === 200) {
-                        console.log(response);
-                        let { data } = response
                         this.feeds = response.data.data
                     }
                 }

@@ -112,8 +112,39 @@
           </header>
         </div>
       </section>
-      <section class="section text-center-me background_accent1">
-        <h2 class="title is-3">Future space for my Instagram posts.</h2>
+      <section class="section background_accent1">
+        <h2 class="title is-3 text-center-me"><a href="https://www.instagram.com/dhavalvyas30/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" />&nbsp; DHAVALVYAS30</a></h2>
+        <div class="Instafeed-container">
+            <Instafeed :token=accessToken :count="8">
+              <template slot="feeds" slot-scope="props">
+                <div class="Instafeed-column">
+                    <div class="card">
+                      <div class="card-image">
+                        <a :href=props.feed.link target="_blank">
+                          <figure class="image">
+                            <img :src=props.feed.images.standard_resolution.url :alt=props.feed.caption.text>
+                          </figure>
+                        </a>
+                      </div>
+                      <div class="card-content">
+                        <div class="content">
+                          <p>{{ props.feed.caption.text }}</p>
+                          <p v-if=props.feed.location><font-awesome-icon icon="map-marker-alt" />&nbsp;{{ props.feed.location.name }}</p>
+                        </div>
+                      </div>
+                      <footer class="card-footer">
+                        <a :href=props.feed.link target="_blank" class="card-footer-item"><font-awesome-icon icon="heart" />&nbsp;{{ props.feed.likes.count }}</a>
+                        <a :href=props.feed.link target="_blank" class="card-footer-item"><font-awesome-icon icon="comments" />&nbsp;{{ props.feed.comments.count }}</a>
+                        <a :href=props.feed.link target="_blank" class="card-footer-item"><font-awesome-icon icon="external-link-alt" /></a>
+                      </footer>
+                    </div>
+                </div>
+              </template>
+              <template slot="error" slot-scope="props">
+                <div class="fancy-alert"> {{ props.error.error_message }} </div>
+              </template>
+            </Instafeed>
+        </div>
       </section>
     </main>
 </template>
@@ -121,11 +152,29 @@
 <script>
   import Hero from '~/components/hero'
   import IntroBox from '~/components/intro_box'
+  import Instafeed from '~/components/instafeed'
+  import accessToken from '~/apollo/queries/instagramToken'
 
   export default {
     components: {
       Hero,
-      IntroBox
+      IntroBox,
+      Instafeed,
+      accessToken
+    },
+    async asyncData ({params, payload, error, app}) {
+        if (payload) return { accessToken: payload }
+        else {
+        let {data} = await app.apolloProvider.defaultClient.query(
+            { query: accessToken, prefetch: true }
+        )
+
+        // ToDo: Convert date in readable format and pass it to data
+        // for (let i = 0; i < data.allPosts.length; i++) {
+        //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
+        // }
+        return { accessToken: data.allInstagramTokens[0].accessToken }
+        }
     },
     head () {
       return {

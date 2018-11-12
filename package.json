@@ -11,6 +11,7 @@
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@fortawesome/vue-fontawesome": "^0.1.2",
     "@nuxtjs/apollo": "^3.0.6",
@@ -24,8 +25,10 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
     "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
     "nuxt": "latest",
     "vue-disqus": "^3.0.3",
+    "vue-instagram": "^2.0.1",
     "vue-server-renderer": "^2.5.13",
     "vue-slick": "^1.1.13"
   },
@@ -41,6 +44,7 @@
     "@nuxtjs/font-awesome": "^1.0.3",
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/markdownit": "^1.2.0",
+    "axios": "^0.18.0",
     "babel-eslint": "^8.2.6",
     "cross-env": "^5.1.4",
     "eslint": "^5.2.0",

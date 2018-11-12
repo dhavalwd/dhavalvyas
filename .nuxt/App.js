@@ -4,13 +4,11 @@ import NuxtLoading from './components/nuxt-loading.vue'
 import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
 
-let layouts = {
+import _6f6c098b from '../layouts/default.vue'
 
-  "_default": () => import('../layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
+const layouts = { "_default": _6f6c098b }
 
-}
 
-let resolvedLayouts = {}
 
 export default {
   head: {"title":"Dhaval Vyas - Front End Developer","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Portfolio of Dhava Vyasl, Front End Developer. He creates for the web."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Source+Sans+Pro:900"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Permanent+Marker:400"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Work+Sans"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lora:400,700i"}],"script":[{"src":"https:\u002F\u002Fidentity.netlify.com\u002Fv1\u002Fnetlify-identity-widget.js"}],"style":[]},
@@ -53,6 +51,7 @@ export default {
     // add to window so we can listen when ready
     if (typeof window !== 'undefined') {
       window.$nuxt = this
+      
     }
     // Add $nuxt.error()
     this.error = this.nuxt.error
@@ -74,34 +73,24 @@ export default {
       }
     },
     
-    setLayout (layout) {
-      if (!layout || !resolvedLayouts['_' + layout]) layout = 'default'
+    
+    setLayout(layout) {
+      if (!layout || !layouts['_' + layout]) {
+        layout = 'default'
+      }
       this.layoutName = layout
-      let _layout = '_' + layout
-      this.layout = resolvedLayouts[_layout]
+      this.layout = layouts['_' + layout]
       return this.layout
     },
-    loadLayout (layout) {
-      if (!layout || !(layouts['_' + layout] || resolvedLayouts['_' + layout])) layout = 'default'
-      let _layout = '_' + layout
-      if (resolvedLayouts[_layout]) {
-        return Promise.resolve(resolvedLayouts[_layout])
+    loadLayout(layout) {
+      if (!layout || !layouts['_' + layout]) {
+        layout = 'default'
       }
-      return layouts[_layout]()
-      .then((Component) => {
-        resolvedLayouts[_layout] = Component
-        delete layouts[_layout]
-        return resolvedLayouts[_layout]
-      })
-      .catch((e) => {
-        if (this.$nuxt) {
-          return this.$nuxt.error({ statusCode: 500, message: e.message })
-        }
-      })
+      return Promise.resolve(layouts['_' + layout])
     }
+    
   },
   components: {
     NuxtLoading
   }
 }
-

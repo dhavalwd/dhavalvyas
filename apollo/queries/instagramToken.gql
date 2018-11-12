@@ -1,0 +1,6 @@
+{
+  allInstagramTokens(first: 1) {
+    id,
+    accessToken
+  }
+}

@@ -1,4 +1,3 @@
-import 'es6-promise/auto'
 import Vue from 'vue'
 import Meta from 'vue-meta'
 import { createRouter } from './router.js'
@@ -42,12 +41,17 @@ Vue.use(Meta, {
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 async function createApp (ssrContext) {
-  const router = createRouter()
+  const router = await createRouter(ssrContext)
 
   
-  const store = createStore()
+  const store = createStore(ssrContext)
   // Add this.$router into store actions/mutations
   store.$router = router
+    
+    // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+    const registerModule = store.registerModule
+    store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
+    
   
 
   // Create Root instance
@@ -145,7 +149,7 @@ async function createApp (ssrContext) {
   }
 
   
-  if (process.browser) {
+  if (process.client) {
     // Replace store state before plugins execution
     if (window.__NUXT__ && window.__NUXT__.state) {
       store.replaceState(window.__NUXT__.state)
@@ -159,7 +163,7 @@ async function createApp (ssrContext) {
   if (typeof nuxt_plugin_markdownit_6b8da5f8 === 'function') await nuxt_plugin_markdownit_6b8da5f8(app.context, inject)
   if (typeof nuxt_plugin_fontawesome_b8db358e === 'function') await nuxt_plugin_fontawesome_b8db358e(app.context, inject)
   
-  if (process.browser) { 
+  if (process.client) { 
     if (typeof nuxt_plugin_googleanalytics_1596fa9b === 'function') await nuxt_plugin_googleanalytics_1596fa9b(app.context, inject)
     if (typeof nuxt_plugin_slick_3376483c === 'function') await nuxt_plugin_slick_3376483c(app.context, inject)
   }

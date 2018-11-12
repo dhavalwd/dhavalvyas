@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-Vue.use(Router)
-
 const _7b338769 = () => import('../pages/Projects.vue' /* webpackChunkName: "pages/Projects" */).then(m => m.default || m)
 const _d885f858 = () => import('../pages/Blog/index.vue' /* webpackChunkName: "pages/Blog/index" */).then(m => m.default || m)
 const _d4f3d4a4 = () => import('../pages/About.vue' /* webpackChunkName: "pages/About" */).then(m => m.default || m)
 const _dbf33ae8 = () => import('../pages/Blog/_slug.vue' /* webpackChunkName: "pages/Blog/_slug" */).then(m => m.default || m)
 const _3dcbd093 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
+Vue.use(Router)
 
 
 if (process.client) {
@@ -33,14 +32,25 @@ const scrollBehavior = function (to, from, savedPosition) {
     position = savedPosition
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     // wait for the out transition to complete (if necessary)
     window.$nuxt.$once('triggerScroll', () => {
       // coords will be used if no selector is provided,
       // or if the selector didn't match any element.
-      if (to.hash && document.querySelector(to.hash)) {
-        // scroll to anchor by returning the selector
-        position = { selector: to.hash }
+      if (to.hash) {
+        let hash = to.hash
+        // CSS.escape() is not supported with IE and Edge.
+        if (typeof window.CSS !== 'undefined' && typeof window.CSS.escape !== 'undefined') {
+          hash = '#' + window.CSS.escape(hash.substr(1))
+        }
+        try {
+          if (document.querySelector(hash)) {
+            // scroll to anchor by returning the selector
+            position = { selector: hash }
+          }
+        } catch (e) {
+          console.warn('Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).')
+        }
       }
       resolve(position)
     })

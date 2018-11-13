@@ -4,7 +4,7 @@
     <div class="brand">
         <nuxt-link to="/"><img src="~/assets/images/logo.svg" /></nuxt-link>
     </div>
-    <nav class='cd-stretchy-nav' v-bind:class="{ 'nav-is-visible': isActive }">
+    <nav class='cd-stretchy-nav' v-click-outside='hide' v-bind:class="{ 'nav-is-visible': isActive }">
         <a class='cd-nav-trigger' v-on:click='toggleMenu' href='javascript: void(0)'>
             <span aria-hidden='true'></span>
         </a>
@@ -21,6 +21,8 @@
 </template>
 
 <script type='text/babel'>
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: 'quickMenu',
   props: ['size'],
@@ -34,7 +36,13 @@ export default {
   methods: {
     toggleMenu (e) {
       this.isActive = !this.isActive
+    },
+    hide () {
+      this.isActive = false
     }
+  },
+  directives: {
+    ClickOutside
   }
 }
 </script>

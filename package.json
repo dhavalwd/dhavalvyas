@@ -18,7 +18,7 @@
     "apollo-cache-inmemory": "^1.1.12",
     "apollo-fetch": "^0.7.0",
     "apollo-link": "^1.2.1",
-    "apollo-link-http": "^1.5.3",
+    "apollo-link-http": "^1.5.7",
     "bourbon": "^5.1.0",
     "bulma": "^0.7.1",
     "bulma-timeline": "^3.0.0",

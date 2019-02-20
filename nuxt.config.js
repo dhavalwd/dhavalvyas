@@ -37,7 +37,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Portfolio of Dhava Vyasl, Front End Developer. He creates for the web.' }
+      { hid: 'description', name: 'description', content: 'Dhaval Vyas is a Front End developer from Halifax, Nova Scotia, Canada. He creates for the web. This is portfolio of Dhaval Vyas.' },
+      { hid: 'keywords', name: 'keywords', content: 'Dhaval Vyas, Front End Developer, Halifax, Canada, Talented, Developer, Front End' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

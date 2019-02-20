@@ -181,7 +181,7 @@
       return {
         title: 'About | Dhaval Vyas',
         meta: [
-          { hid: 'about', name: 'about', content: 'This is about me page of Dhaval Vyas. This gives an idea about Dhaval Vyas\'s timeline.' }
+          { hid: 'about', name: 'about', content: 'This is About Me page of Dhaval Vyas, a Front end developer from Halifax, Canada. Dhaval Vyas\'s experience.' }
         ]
       }
     }

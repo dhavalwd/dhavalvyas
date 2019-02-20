@@ -324,7 +324,7 @@
       return {
         title: 'Portfolio | Dhaval Vyas',
         meta: [
-          { hid: 'portfolio', name: 'dhaval vyas', content: 'This is portfolio page of Dhaval Vyas. Portfolio page shows all projects of Dhaval Vyas.' }
+          { hid: 'portfolio', name: 'dhaval vyas', content: 'This is Portfolio Page of Dhaval Vyas. Portfolio page shows some of the projects of Dhaval Vyas worked on.' }
         ]
       }
     },

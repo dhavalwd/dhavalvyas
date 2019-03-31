@@ -22,7 +22,7 @@
     "bourbon": "^5.1.0",
     "bulma": "^0.7.1",
     "bulma-timeline": "^3.0.0",
-    "graphql": "^0.13.2",
+    "graphql": "^14.2.1",
     "graphql-tag": "^2.8.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",

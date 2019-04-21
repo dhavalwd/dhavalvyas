@@ -46,6 +46,39 @@
                   <no-ssr slot="card-image">
                     <slick ref="slick" :options="slickOptions">
                       <div>
+                        <img src="~/assets/images/projects/nslc-cannabis-1.jpg" alt="NSLC Cannabis">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/nslc-cannabis-2.jpg" alt="NSLC Cannabis">
+                      </div>
+                      <div>
+                        <img src="~/assets/images/projects/nslc-cannabis-3.jpg" alt="NSLC Cannabis">
+                      </div>
+                    </slick>
+                  </no-ssr>
+                  <template slot="card-title">NSLC Cannabis</template>
+                  <template slot="card-subtitle">@T4G</template>
+                  <div slot="card-content" class="cardContent">
+                      <p>Front End Build Script to generate HTML, CSS and bundled JS</p>
+                      <p>Major functionalities: Search Results page, Product Listing page</p>
+                      <div class="tags">
+                        <span class="tag">HTML (Pug)</span>
+                        <span class="tag">Javascript (ES6)</span>
+                        <span class="tag">CSS (Sass)</span>
+                        <span class="tag">jQuery</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Gulp</span>
+                        <span class="tag">Sitecore</span>
+                      </div>
+                  </div>
+                  <template slot="card-link"><a href="https://cannabis.mynslc.com" target="_blank"></a></template>
+                </card>
+              </div>
+              <div class="Recent_Project-column">
+                <card>
+                  <no-ssr slot="card-image">
+                    <slick ref="slick" :options="slickOptions">
+                      <div>
                         <img src="~/assets/images/projects/crombie-1.jpg" alt="Crombie REIT">
                       </div>
                       <div>
@@ -54,59 +87,26 @@
                     </slick>
                   </no-ssr>
                   <template slot="card-title">Crombie REIT</template>
-                  <template slot="card-subtitle">@T4G (2017)</template>
-                  <!-- <div slot="card-content" class="cardContent">
-                      <ul>
-                        <li>Druapl Custom Theme</li>
-                        <li>JavaScript</li>
-                        <li>SASS</li>
-                        <li>jQuery</li>
-                      </ul>
-                  </div> -->
+                  <template slot="card-subtitle">@T4G</template>
+                  <div slot="card-content" class="cardContent">
+                      <p>AirBnb style Google Map functionality</p>
+                      <p>Individual property page with Google Map Street view in slider</p>
+                      <div class="tags">
+                        <span class="tag">Drupal 8</span>
+                        <span class="tag">HTML (Pug)</span>
+                        <span class="tag">Javascript (ES6)</span>
+                        <span class="tag">CSS (Sass)</span>
+                        <span class="tag">jQuery</span>
+                      </div>
+                  </div>
                   <template slot="card-link"><a href="http://crombie.ca/properties" target="_blank"></a></template>
                 </card>
               </div>
-              <div class="Recent_Project-column">
-                <card>
-                  <no-ssr slot="card-image">
-                    <slick ref="slick" :options="slickOptions">
-                      <div>
-                        <img src="~/assets/images/projects/jazz-1.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-2.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-3.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-4.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-5.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-6.jpg" alt="Jazz Aviation">
-                      </div>
-                      <div>
-                        <img src="~/assets/images/projects/jazz-7.jpg" alt="Jazz Aviation">
-                      </div>
-                    </slick>
-                  </no-ssr>
-                  <template slot="card-title">Jazz Aviation LP</template>
-                  <template slot="card-subtitle">@Famous Folks (2016)</template>
-                  <!-- <div slot="card-content" class="cardContent">
-                      <ul>
-                        <li>Druapl Custom Theme</li>
-                        <li>JavaScript</li>
-                        <li>SASS</li>
-                        <li>jQuery</li>
-                      </ul>
-                  </div> -->
-                  <template slot="card-link"><a href="http://flyjazz.ca/" target="_blank"></a></template>
-                </card>
-              </div>
             </div>
+            <div class="has-text-centered">
+              <router-link class="button is-dominant" :to="{ path: `/projects`}">View All Projects</router-link>
+            </div>
+            <!-- <a class="button is-dominant" target="" title="PDF, opens in a new window" href="/files/resume.pdf" slot="subtitle">View All</a> -->
           </div>
         </div>
       </section>

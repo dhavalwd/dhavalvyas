@@ -2,10 +2,43 @@
   <main class="main" id="main">
     <hero class="hero-projects is-fullheight">
       <div slot="background" class="hero-bg" :style="{ backgroundImage: `url(/images/projects-bg.jpg)` }"></div>
-      <template slot="title">Portfolio</template>
+      <template slot="title">Projects</template>
     </hero>
     <div class="projects-all layout-fixed">
       <div class="Project-columns">
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/nslc-cannabis-1.jpg" alt="NSLC Cannabis">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/nslc-cannabis-2.jpg" alt="NSLC Cannabis">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/nslc-cannabis-3.jpg" alt="NSLC Cannabis">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">NSLC Cannabis</template>
+            <template slot="card-subtitle">@T4G</template>
+            <div slot="card-content" class="cardContent">
+                <p>Front End Build Script to generate HTML, CSS and bundled JS</p>
+                <p>Major functionalities: Search Results page, Product Listing page</p>
+                <div class="tags">
+                  <span class="tag">HTML (Pug)</span>
+                  <span class="tag">Javascript (ES6)</span>
+                  <span class="tag">CSS (Sass)</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Gulp</span>
+                  <span class="tag">Sitecore</span>
+                </div>
+            </div>
+            <template slot="card-link"><a href="https://cannabis.mynslc.com" target="_blank"></a></template>
+          </card>
+        </div>
         <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
@@ -19,15 +52,18 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Crombie REIT</template>
-            <template slot="card-subtitle">@T4G (2017)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <template slot="card-subtitle">@T4G</template>
+            <div slot="card-content" class="cardContent">
+                <p>AirBnb style Google Map functionality</p>
+                <p>Individual property page with Google Map Street view in slider</p>
+                <div class="tags">
+                  <span class="tag">Drupal 8</span>
+                  <span class="tag">HTML (Pug)</span>
+                  <span class="tag">Javascript (ES6)</span>
+                  <span class="tag">CSS (Sass)</span>
+                  <span class="tag">jQuery</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://crombie.ca/properties" target="_blank"></a></template>
           </card>
         </div>
@@ -59,15 +95,18 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Jazz Aviation LP</template>
-            <template slot="card-subtitle">@Famous Folks (2016)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <template slot="card-subtitle">@Famous Folks</template>
+            <div slot="card-content" class="cardContent">
+                <p>Heavy animation functionality based on user's scroll position using Greensock</p>
+                <p>Major functionalities: Animation on user's scroll, Our Fleet</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Greensock JS</span>
+                  <span class="tag">Wordpress</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://flyjazz.ca/" target="_blank"></a></template>
           </card>
         </div>
@@ -91,14 +130,16 @@
             </no-ssr>
             <template slot="card-title">Garden Gangsters</template>
             <template slot="card-subtitle">@Famous Folks (2017)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Smooth page transition when user navigates to different pages of the site</p>
+                <p>Dynamic open / closed functionality in footer</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Wordpress</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://gardengangsters.com/" target="_blank"></a></template>
           </card>
         </div>
@@ -122,14 +163,15 @@
             </no-ssr>
             <template slot="card-title">Cadilac Fairview</template>
             <template slot="card-subtitle">@Famous Folks (2017)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>AirBnb style map view for Property listing</p>
+                <p>3D model for property availability</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="https://cfoffice.ca/" target="_blank"></a></template>
           </card>
         </div>
@@ -150,14 +192,18 @@
             </no-ssr>
             <template slot="card-title">Grand Pre 2017</template>
             <template slot="card-subtitle">@Famous Folks (2016)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Animated elements on home page usgin Scrollmagic and Tweenmax</p>
+                <p>Easy to read layout for Schedule page</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Scrollmagic</span>
+                  <span class="tag">Tweenmax</span>
+                  <span class="tag">Wordpress</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://grandpre2017.ca/" target="_blank"></a></template>
           </card>
         </div>
@@ -181,18 +227,19 @@
             </no-ssr>
             <template slot="card-title">Blue Elephant Marketing & Design</template>
             <template slot="card-subtitle">@Famous Folks (2017)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Initial built up for the site</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Wordpress</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://bemarketing.ca/" target="_blank"></a></template>
           </card>
         </div>
-        <div class="Project-column">
+        <!-- <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -209,18 +256,19 @@
             </no-ssr>
             <template slot="card-title">CANDAC</template>
             <template slot="card-subtitle">@CANDAC (2014)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Druapl Custom Theme</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Initial built up for the site</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Drupal</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
           </card>
-        </div>
-        <div class="Project-column">
+        </div> -->
+        <!-- <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -237,17 +285,19 @@
             </no-ssr>
             <template slot="card-title">Kier Group PLC</template>
             <template slot="card-subtitle">@Investis (2011)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Sitecore CMS</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Large website with multiple functionalities</p>
+                <p></p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Wordpress</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://www.kier.co.uk/" target="_blank"></a></template>
           </card>
-        </div>
+        </div> -->
         <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
@@ -265,18 +315,19 @@
             </no-ssr>
             <template slot="card-title">ArcelorMittal Corporate</template>
             <template slot="card-subtitle">@Investis (2010)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Sitecore CMS</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
+            <div slot="card-content" class="cardContent">
+                <p>Large website with multiple functionalities</p>
+                <div class="tags">
+                  <span class="tag">Javascript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">Sitecore</span>
+                </div>
+            </div>
             <template slot="card-link"><a href="http://corporate.arcelormittal.com/" target="_blank"></a></template>
           </card>
         </div>
-        <div class="Project-column">
+        <!-- <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -293,17 +344,9 @@
             </no-ssr>
             <template slot="card-title">Caretech</template>
             <template slot="card-subtitle">@Investis (2011)</template>
-            <!-- <div slot="card-content" class="cardContent">
-                <ul>
-                  <li>Sitecore CMS</li>
-                  <li>JavaScript</li>
-                  <li>SASS</li>
-                  <li>jQuery</li>
-                </ul>
-            </div> -->
             <template slot="card-link"><a href="https://www.caretech-uk.com/" target="_blank"></a></template>
           </card>
-        </div>
+        </div> -->
       </div>
     </div>
   </main>

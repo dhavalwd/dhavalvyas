@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import middleware from './middleware'
-import { createApp, NuxtError } from './index'
+import fetch from 'unfetch'
+import middleware from './middleware.js'
 import {
   applyAsyncData,
   sanitizeComponent,
@@ -15,10 +15,15 @@ import {
   compile,
   getQueryDiff,
   globalHandleError
-} from './utils'
+} from './utils.js'
+import { createApp, NuxtError } from './index.js'
+import NuxtLink from './components/nuxt-link.client.js' // should be included after ./index.js
 
-const noopData = () => { return {} }
-const noopFetch = () => {}
+// Component: <NuxtLink>
+Vue.component(NuxtLink.name, NuxtLink)
+Vue.component('NLink', NuxtLink)
+
+if (!global.fetch) { global.fetch = fetch }
 
 // Global shared references
 let _lastPaths = []
@@ -31,32 +36,26 @@ const NUXT = window.__NUXT__ || {}
 
 Object.assign(Vue.config, {"silent":false,"performance":true})
 
-
 // Setup global Vue error handler
 if (!Vue.config.$nuxt) {
   const defaultErrorHandler = Vue.config.errorHandler
   Vue.config.errorHandler = (err, vm, info, ...rest) => {
-    const nuxtError = {
-      statusCode: err.statusCode || err.name || 'Whoops!',
-      message: err.message || err.toString()
-    }
-
     // Call other handler if exist
     let handled = null
     if (typeof defaultErrorHandler === 'function') {
       handled = defaultErrorHandler(err, vm, info, ...rest)
     }
-    if (handled === true){
+    if (handled === true) {
       return handled
     }
 
     if (vm && vm.$root) {
       const nuxtApp = Object.keys(Vue.config.$nuxt)
         .find(nuxtInstance => vm.$root[nuxtInstance])
-    
+
       // Show Nuxt Error Page
       if (nuxtApp && vm.$root[nuxtApp].error && info !== 'render function') {
-        vm.$root[nuxtApp].error(nuxtError)
+        vm.$root[nuxtApp].error(err)
       }
     }
 
@@ -68,21 +67,23 @@ if (!Vue.config.$nuxt) {
     if (process.env.NODE_ENV !== 'production') {
       console.error(err)
     } else {
-      console.error(err.message || nuxtError.message)
+      console.error(err.message || err)
     }
   }
   Vue.config.$nuxt = {}
 }
 Vue.config.$nuxt.$nuxt = true
 
-
+const errorHandler = Vue.config.errorHandler || console.error
 
 // Create and mount App
 createApp()
-.then(mountApp)
-.catch((err) => {
-  console.error('[nuxt] Error while initializing app', err)
-})
+  .then(mountApp)
+  .catch((err) => {
+    const wrapperError = new Error(err)
+    wrapperError.message = '[nuxt] Error while mounting app: ' + wrapperError.message
+    errorHandler(wrapperError)
+  })
 
 function componentOption(component, key, ...args) {
   if (!component || !component.options || !component.options[key]) {
@@ -107,38 +108,36 @@ function mapTransitions(Components, to, from) {
 
     // Combine transitions & prefer `leave` transitions of 'from' route
     if (from && from.matched.length && from.matched[0].components.default) {
-      const from_transitions = componentTransitions(from.matched[0].components.default)
-      Object.keys(from_transitions)
-        .filter((key) => from_transitions[key] && key.toLowerCase().includes('leave'))
-        .forEach((key) => { transitions[key] = from_transitions[key] })
+      const fromTransitions = componentTransitions(from.matched[0].components.default)
+      Object.keys(fromTransitions)
+        .filter(key => fromTransitions[key] && key.toLowerCase().includes('leave'))
+        .forEach((key) => { transitions[key] = fromTransitions[key] })
     }
 
     return transitions
   })
 }
 
-async function loadAsyncComponents (to, from, next) {
+async function loadAsyncComponents(to, from, next) {
   // Check if route path changed (this._pathChanged), only if the page is not an error (for validate())
   this._pathChanged = !!app.nuxt.err || from.path !== to.path
   this._queryChanged = JSON.stringify(to.query) !== JSON.stringify(from.query)
   this._diffQuery = (this._queryChanged ? getQueryDiff(to.query, from.query) : [])
 
-  
   if (this._pathChanged && this.$loading.start && !this.$loading.manual) {
     this.$loading.start()
   }
-  
 
   try {
     const Components = await resolveRouteComponents(to)
-    
+
     if (!this._pathChanged && this._queryChanged) {
       // Add a marker on each component that it needs to refresh or not
       const startLoader = Components.some((Component) => {
         const watchQuery = Component.options.watchQuery
         if (watchQuery === true) return true
         if (Array.isArray(watchQuery)) {
-          return watchQuery.some((key) => this._diffQuery[key])
+          return watchQuery.some(key => this._diffQuery[key])
         }
         return false
       })
@@ -146,15 +145,24 @@ async function loadAsyncComponents (to, from, next) {
         this.$loading.start()
       }
     }
-    
+
     // Call next()
     next()
-  } catch (err) {
-    err = err || {}
-    const statusCode = (err.statusCode || err.status || (err.response && err.response.status) || 500)
-    this.error({ statusCode, message: err.message })
+  } catch (error) {
+    const err = error || {}
+    const statusCode = err.statusCode || err.status || (err.response && err.response.status) || 500
+    const message = err.message || ''
+
+    // Handle chunk loading errors
+    // This may be due to a new deployment or a network problem
+    if (/^Loading( CSS)? chunk (\d)+ failed\./.test(message)) {
+      window.location.reload(true /* skip cache */)
+      return // prevent error page blinking for user
+    }
+
+    this.error({ statusCode, message })
     this.$nuxt.$emit('routeChanged', to, from, err)
-    next(false)
+    next()
   }
 }
 
@@ -182,15 +190,16 @@ function resolveComponents(router) {
   })
 }
 
-function callMiddleware (Components, context, layout) {
+function callMiddleware(Components, context, layout) {
   let midd = []
   let unknownMiddleware = false
 
   // If layout is undefined, only call global middleware
   if (typeof layout !== 'undefined') {
     midd = [] // Exclude global middleware if layout defined (already called before)
-    if (layout.middleware) {
-      midd = midd.concat(layout.middleware)
+    layout = sanitizeComponent(layout)
+    if (layout.options.middleware) {
+      midd = midd.concat(layout.options.middleware)
     }
     Components.forEach((Component) => {
       if (Component.options.middleware) {
@@ -212,7 +221,7 @@ function callMiddleware (Components, context, layout) {
   return middlewareSeries(midd, context)
 }
 
-async function render (to, from, next) {
+async function render(to, from, next) {
   if (this._pathChanged === false && this._queryChanged === false) return next()
   // Handle first render on SPA mode
   if (to === from) _lastPaths = []
@@ -226,16 +235,14 @@ async function render (to, from, next) {
   // nextCalled is true when redirected
   let nextCalled = false
   const _next = (path) => {
-    
     if (from.path === path.path && this.$loading.finish) {
       this.$loading.finish()
     }
-    
-    
+
     if (from.path !== path.path && this.$loading.pause) {
       this.$loading.pause()
     }
-    
+
     if (nextCalled) return
     nextCalled = true
     next(path)
@@ -337,41 +344,39 @@ async function render (to, from, next) {
       Component._dataRefresh = false
       // Check if Component need to be refreshed (call asyncData & fetch)
       // Only if its slug has changed or is watch query changes
-      if (this._pathChanged && this._queryChanged || Component._path !== _lastPaths[i]) {
+      if ((this._pathChanged && this._queryChanged) || Component._path !== _lastPaths[i]) {
         Component._dataRefresh = true
       } else if (!this._pathChanged && this._queryChanged) {
         const watchQuery = Component.options.watchQuery
         if (watchQuery === true) {
           Component._dataRefresh = true
         } else if (Array.isArray(watchQuery)) {
-          Component._dataRefresh = watchQuery.some((key) => this._diffQuery[key])
+          Component._dataRefresh = watchQuery.some(key => this._diffQuery[key])
         }
       }
       if (!this._hadError && this._isMounted && !Component._dataRefresh) {
         return Promise.resolve()
       }
 
-      let promises = []
+      const promises = []
 
       const hasAsyncData = (
         Component.options.asyncData &&
         typeof Component.options.asyncData === 'function'
       )
       const hasFetch = !!Component.options.fetch
-      
+
       const loadingIncrease = (hasAsyncData && hasFetch) ? 30 : 45
-      
 
       // Call asyncData(context)
       if (hasAsyncData) {
         const promise = promisify(Component.options.asyncData, app.context)
           .then((asyncDataResult) => {
             applyAsyncData(Component, asyncDataResult)
-            
-            if(this.$loading.increase) {
+
+            if (this.$loading.increase) {
               this.$loading.increase(loadingIncrease)
             }
-            
           })
         promises.push(promise)
       }
@@ -381,18 +386,16 @@ async function render (to, from, next) {
 
       // Call fetch(context)
       if (hasFetch) {
-          let p = Component.options.fetch(app.context)
-          if (!p || (!(p instanceof Promise) && (typeof p.then !== 'function'))) {
-              p = Promise.resolve(p)
+        let p = Component.options.fetch(app.context)
+        if (!p || (!(p instanceof Promise) && (typeof p.then !== 'function'))) {
+          p = Promise.resolve(p)
+        }
+        p.then((fetchResult) => {
+          if (this.$loading.increase) {
+            this.$loading.increase(loadingIncrease)
           }
-          p.then((fetchResult) => {
-            
-            if (this.$loading.increase) {
-              this.$loading.increase(loadingIncrease)
-            }
-            
-          })
-          promises.push(p)
+        })
+        promises.push(p)
       }
 
       return Promise.all(promises)
@@ -400,23 +403,18 @@ async function render (to, from, next) {
 
     // If not redirected
     if (!nextCalled) {
-      
       if (this.$loading.finish && !this.$loading.manual) {
         this.$loading.finish()
       }
-      
+
       next()
     }
-
-  } catch (error) {
-    if (!error) {
-      error = {}
-    } else if (error.message === 'ERR_REDIRECT') {
+  } catch (err) {
+    const error = err || {}
+    if (error.message === 'ERR_REDIRECT') {
       return this.$nuxt.$emit('routeChanged', to, from, error)
     }
     _lastPaths = []
-    const errorResponseStatus = (error.response && error.response.status)
-    error.statusCode = error.statusCode || error.status || errorResponseStatus || 500
 
     globalHandleError(error)
 
@@ -429,12 +427,12 @@ async function render (to, from, next) {
 
     this.error(error)
     this.$nuxt.$emit('routeChanged', to, from, error)
-    next(false)
+    next()
   }
 }
 
 // Fix components format in matched, it's due to code-splitting of vue-router
-function normalizeComponents (to, ___) {
+function normalizeComponents(to, ___) {
   flatMapComponents(to, (Component, _, match, key) => {
     if (typeof Component === 'object' && !Component.options) {
       // Updated via vue-router resolveAsyncComponents()
@@ -483,23 +481,23 @@ function fixPrepatch(to, ___) {
       if (
         instance.constructor._dataRefresh &&
         Components[i] === instance.constructor &&
+        instance.$vnode.data.keepAlive !== true &&
         typeof instance.constructor.options.data === 'function'
       ) {
         const newData = instance.constructor.options.data.call(instance)
-        for (let key in newData) {
+        for (const key in newData) {
           Vue.set(instance.$data, key, newData[key])
         }
       }
     })
     showNextPage.call(this, to)
-    
+
     // Hot reloading
     setTimeout(() => hotReloadAPI(this), 100)
-    
   })
 }
 
-function nuxtReady (_app) {
+function nuxtReady(_app) {
   window.onNuxtReadyCbs.forEach((cb) => {
     if (typeof cb === 'function') {
       cb(_app)
@@ -516,11 +514,13 @@ function nuxtReady (_app) {
   })
 }
 
+const noopData = () => { return {} }
+const noopFetch = () => {}
 
 // Special hot reload with asyncData(context)
 function getNuxtChildComponents($parent, $components = []) {
   $parent.$children.forEach(($child) => {
-    if ($child.$vnode.data.nuxtChild && !$components.find(c =>(c.$options.__file === $child.$options.__file))) {
+    if ($child.$vnode && $child.$vnode.data.nuxtChild && !$components.find(c =>(c.$options.__file === $child.$options.__file))) {
       $components.push($child)
     }
     if ($child.$children && $child.$children.length) {
@@ -531,7 +531,7 @@ function getNuxtChildComponents($parent, $components = []) {
   return $components
 }
 
-function hotReloadAPI (_app) {
+function hotReloadAPI(_app) {
   if (!module.hot) return
 
   let $components = getNuxtChildComponents(_app.$nuxt, [])
@@ -539,7 +539,7 @@ function hotReloadAPI (_app) {
   $components.forEach(addHotReload.bind(_app))
 }
 
-function addHotReload ($component, depth) {
+function addHotReload($component, depth) {
   if ($component.$vnode.data._hasHotReload) return
   $component.$vnode.data._hasHotReload = true
 
@@ -566,9 +566,9 @@ function addHotReload ($component, depth) {
       next: next.bind(this)
     })
     const context = app.context
-    
+
     if (this.$loading.start && !this.$loading.manual) this.$loading.start()
-    
+
     callMiddleware.call(this, Components, context)
     .then(() => {
       // If layout changed
@@ -612,12 +612,11 @@ function addHotReload ($component, depth) {
   }
 }
 
-
 async function mountApp(__app) {
   // Set global variables
   app = __app.app
   router = __app.router
-  store = __app.store 
+  store = __app.store
 
   // Resolve route components
   const Components = await Promise.all(resolveComponents(router))
@@ -625,25 +624,26 @@ async function mountApp(__app) {
   // Create Vue instance
   const _app = new Vue(app)
 
-  
-    // Load layout
+  // Load layout
   const layout = NUXT.layout || 'default'
   await _app.loadLayout(layout)
   _app.setLayout(layout)
-  
 
   // Mounts Vue app to DOM element
   const mount = () => {
     _app.$mount('#__nuxt')
 
+    // Add afterEach router hooks
+    router.afterEach(normalizeComponents)
+    router.afterEach(fixPrepatch.bind(_app))
+
     // Listen for first Vue update
     Vue.nextTick(() => {
       // Call window.{{globals.readyCallback}} callbacks
       nuxtReady(_app)
-      
+
       // Enable hot reloading
       hotReloadAPI(_app)
-      
     })
   }
 
@@ -658,11 +658,9 @@ async function mountApp(__app) {
   _app.$loading = {} // To avoid error while _app.$nuxt does not exist
   if (NUXT.error) _app.error(NUXT.error)
 
-  // Add router hooks
+  // Add beforeEach router hooks
   router.beforeEach(loadAsyncComponents.bind(_app))
   router.beforeEach(render.bind(_app))
-  router.afterEach(normalizeComponents)
-  router.afterEach(fixPrepatch.bind(_app))
 
   // If page already is server rendered
   if (NUXT.serverRendered) {
@@ -671,20 +669,30 @@ async function mountApp(__app) {
   }
 
   // First render on client-side
+  const clientFirstMount = () => {
+    normalizeComponents(router.currentRoute, router.currentRoute)
+    showNextPage.call(_app, router.currentRoute)
+    // Don't call fixPrepatch.call(_app, router.currentRoute, router.currentRoute) since it's first render
+    mount()
+  }
+
   render.call(_app, router.currentRoute, router.currentRoute, (path) => {
     // If not redirected
     if (!path) {
-      normalizeComponents(router.currentRoute, router.currentRoute)
-      showNextPage.call(_app, router.currentRoute)
-      // Don't call fixPrepatch.call(_app, router.currentRoute, router.currentRoute) since it's first render
-      mount()
+      clientFirstMount()
       return
     }
 
-    // Push the path and then mount app
-    router.push(path, () => mount(), (err) => {
-      if (!err) return mount()
-      console.error(err)
+    // Add a one-time afterEach hook to
+    // mount the app wait for redirect and route gets resolved
+    const unregisterHook = router.afterEach((to, from) => {
+      unregisterHook()
+      clientFirstMount()
+    })
+
+    // Push the path and let route to be resolved
+    router.push(path, undefined, (err) => {
+      if (err) errorHandler(err)
     })
   })
 }

@@ -11,8 +11,8 @@
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-brands-svg-icons": "^5.5.0",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/vue-fontawesome": "^0.1.2",
     "@nuxtjs/apollo": "^3.0.7",
     "apollo-cache-inmemory": "^1.1.12",
@@ -26,6 +26,7 @@
     "graphql-tag": "^2.8.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0",
     "nuxt": "latest",
     "vue-apollo": "^3.0.0-beta.16",
     "vue-click-outside": "^1.0.7",

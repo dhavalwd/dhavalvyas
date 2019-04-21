@@ -53,4 +53,19 @@
       width: 100%;
       height: 100%;
   }
+
+  .content {
+      p {
+          margin-bottom: 8px;
+
+          &:before {
+              content: '-';
+              padding-right: 4px;
+          }
+      }
+
+      .tags {
+          margin-top: 16px;
+      }
+  }
 </style>

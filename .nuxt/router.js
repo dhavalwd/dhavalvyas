@@ -1,28 +1,45 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { interopDefault } from './utils'
 
-const _7b338769 = () => import('../pages/Projects.vue' /* webpackChunkName: "pages/Projects" */).then(m => m.default || m)
-const _d885f858 = () => import('../pages/Blog/index.vue' /* webpackChunkName: "pages/Blog/index" */).then(m => m.default || m)
-const _d4f3d4a4 = () => import('../pages/About.vue' /* webpackChunkName: "pages/About" */).then(m => m.default || m)
-const _dbf33ae8 = () => import('../pages/Blog/_slug.vue' /* webpackChunkName: "pages/Blog/_slug" */).then(m => m.default || m)
-const _3dcbd093 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _d4f3d4a4 = () => interopDefault(import('../pages/About.vue' /* webpackChunkName: "pages/About" */))
+const _d885f858 = () => interopDefault(import('../pages/Blog/index.vue' /* webpackChunkName: "pages/Blog/index" */))
+const _7b338769 = () => interopDefault(import('../pages/Projects.vue' /* webpackChunkName: "pages/Projects" */))
+const _dbf33ae8 = () => interopDefault(import('../pages/Blog/_slug.vue' /* webpackChunkName: "pages/Blog/_slug" */))
+const _3dcbd093 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
-
 if (process.client) {
-  window.history.scrollRestoration = 'manual'
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual'
+
+    // reset scrollRestoration to auto when leaving page, allowing page reload
+    // and back-navigation from other pages to use the browser to restore the
+    // scrolling position.
+    window.addEventListener('beforeunload', () => {
+      window.history.scrollRestoration = 'auto'
+    })
+
+    // Setting scrollRestoration to manual again when returning to this page.
+    window.addEventListener('load', () => {
+      window.history.scrollRestoration = 'manual'
+    })
+  }
 }
 const scrollBehavior = function (to, from, savedPosition) {
   // if the returned position is falsy or an empty object,
   // will retain current scroll position.
   let position = false
 
-  // if no children detected
-  if (to.matched.length < 2) {
+  // if no children detected and scrollToTop is not explicitly disabled
+  if (
+    to.matched.length < 2 &&
+    to.matched.every(r => r.components.default.options.scrollToTop !== false)
+  ) {
     // scroll to the top of the page
     position = { x: 0, y: 0 }
-  } else if (to.matched.some((r) => r.components.default.options.scrollToTop)) {
+  } else if (to.matched.some(r => r.components.default.options.scrollToTop)) {
     // if one of the children has scrollToTop option set to true
     position = { x: 0, y: 0 }
   }
@@ -57,43 +74,36 @@ const scrollBehavior = function (to, from, savedPosition) {
   })
 }
 
-
-export function createRouter () {
+export function createRouter() {
   return new Router({
     mode: 'history',
-    base: '/',
+    base: decodeURI('/'),
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
-    routes: [
-		{
-			path: "/Projects",
-			component: _7b338769,
-			name: "Projects"
-		},
-		{
-			path: "/Blog",
-			component: _d885f858,
-			name: "Blog"
-		},
-		{
-			path: "/About",
-			component: _d4f3d4a4,
-			name: "About"
-		},
-		{
-			path: "/Blog/:slug",
-			component: _dbf33ae8,
-			name: "Blog-slug"
-		},
-		{
-			path: "/",
-			component: _3dcbd093,
-			name: "index"
-		}
-    ],
-    
-    
+
+    routes: [{
+      path: "/About",
+      component: _d4f3d4a4,
+      name: "About"
+    }, {
+      path: "/Blog",
+      component: _d885f858,
+      name: "Blog"
+    }, {
+      path: "/Projects",
+      component: _7b338769,
+      name: "Projects"
+    }, {
+      path: "/Blog/:slug",
+      component: _dbf33ae8,
+      name: "Blog-slug"
+    }, {
+      path: "/",
+      component: _3dcbd093,
+      name: "index"
+    }],
+
     fallback: false
   })
 }

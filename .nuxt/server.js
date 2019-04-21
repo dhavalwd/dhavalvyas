@@ -1,18 +1,23 @@
-import Vue from 'vue'
 import { stringify } from 'querystring'
-import omit from 'lodash/omit'
-import middleware from './middleware'
-import { createApp, NuxtError } from './index'
-import { applyAsyncData, sanitizeComponent, getMatchedComponents, getContext, middlewareSeries, promisify, urlJoin } from './utils'
+import Vue from 'vue'
+import fetch from 'node-fetch'
+import middleware from './middleware.js'
+import { applyAsyncData, getMatchedComponents, middlewareSeries, promisify, urlJoin, sanitizeComponent } from './utils.js'
+import { createApp, NuxtError } from './index.js'
+import NuxtLink from './components/nuxt-link.server.js' // should be included after ./index.js
+
+// Component: <NuxtLink>
+Vue.component(NuxtLink.name, NuxtLink)
+Vue.component('NLink', NuxtLink)
+
+if (!global.fetch) { global.fetch = fetch }
 
 const debug = require('debug')('nuxt:render')
 debug.color = 4 // force blue color
 
-const isDev = true
+const noopApp = () => new Vue({ render: h => h('div') })
 
-const noopApp = () => new Vue({ render: (h) => h('div') })
-
-const createNext = (ssrContext) => (opts) => {
+const createNext = ssrContext => (opts) => {
   ssrContext.redirected = opts
   // If nuxt generate
   if (!ssrContext.res) {
@@ -21,8 +26,9 @@ const createNext = (ssrContext) => (opts) => {
   }
   opts.query = stringify(opts.query)
   opts.path = opts.path + (opts.query ? '?' + opts.query : '')
-  if (!opts.path.startsWith('http') && ('/' !== '/' && !opts.path.startsWith('/'))) {
-    opts.path = urlJoin('/', opts.path)
+  const routerBase = '/'
+  if (!opts.path.startsWith('http') && (routerBase !== '/' && !opts.path.startsWith(routerBase))) {
+    opts.path = urlJoin(routerBase, opts.path)
   }
   // Avoid loop redirect
   if (opts.path === ssrContext.url) {
@@ -59,15 +65,14 @@ export default async (ssrContext) => {
 
   const beforeRender = async () => {
     // Call beforeNuxtRender() methods
-    await Promise.all(ssrContext.beforeRenderFns.map((fn) => promisify(fn, { Components, nuxtState: ssrContext.nuxt })))
-    
+    await Promise.all(ssrContext.beforeRenderFns.map(fn => promisify(fn, { Components, nuxtState: ssrContext.nuxt })))
+
     // Add the state from the vuex store
     ssrContext.nuxt.state = store.state
-    
   }
   const renderErrorPage = async () => {
     // Load layout for error page
-    let errLayout = (typeof NuxtError.layout === 'function' ? NuxtError.layout(app.context) : NuxtError.layout)
+    const errLayout = (typeof NuxtError.layout === 'function' ? NuxtError.layout(app.context) : NuxtError.layout)
     ssrContext.nuxt.layout = errLayout || 'default'
     await _app.loadLayout(errLayout)
     _app.setLayout(errLayout)
@@ -79,12 +84,11 @@ export default async (ssrContext) => {
     return renderErrorPage()
   }
 
-  const s = isDev && Date.now()
+  const s = Date.now()
 
   // Components are already resolved by setContext -> getRouteData (app/utils.js)
   const Components = getMatchedComponents(router.match(ssrContext.url))
 
-  
   /*
   ** Dispatch store nuxtServerInit
   */
@@ -99,7 +103,6 @@ export default async (ssrContext) => {
   // ...If there is a redirect or an error, stop the process
   if (ssrContext.redirected) return noopApp()
   if (ssrContext.nuxt.error) return renderErrorPage()
-  
 
   /*
   ** Call global middleware (nuxt.config.js)
@@ -131,7 +134,8 @@ export default async (ssrContext) => {
   ** Call middleware (layout + pages)
   */
   midd = []
-  if (layout.middleware) midd = midd.concat(layout.middleware)
+  layout = sanitizeComponent(layout)
+  if (layout.options.middleware) midd = midd.concat(layout.options.middleware)
   Components.forEach((Component) => {
     if (Component.options.middleware) {
       midd = midd.concat(Component.options.middleware)
@@ -186,12 +190,12 @@ export default async (ssrContext) => {
   if (!Components.length) return render404Page()
 
   // Call asyncData & fetch hooks on components matched by the route.
-  let asyncDatas = await Promise.all(Components.map((Component) => {
-    let promises = []
+  const asyncDatas = await Promise.all(Components.map((Component) => {
+    const promises = []
 
     // Call asyncData(context)
     if (Component.options.asyncData && typeof Component.options.asyncData === 'function') {
-      let promise = promisify(Component.options.asyncData, app.context)
+      const promise = promisify(Component.options.asyncData, app.context)
       promise.then((asyncDataResult) => {
         ssrContext.asyncData[Component.cid] = asyncDataResult
         applyAsyncData(Component)
@@ -205,8 +209,7 @@ export default async (ssrContext) => {
     // Call fetch(context)
     if (Component.options.fetch) {
       promises.push(Component.options.fetch(app.context))
-    }
-    else {
+    } else {
       promises.push(null)
     }
 

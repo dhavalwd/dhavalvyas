@@ -164,10 +164,10 @@
       accessToken
     },
     async asyncData ({params, payload, error, app}) {
-        if (payload) return { accessToken: payload }
-        else {
+      if (payload) return { accessToken: payload }
+      else {
         let {data} = await app.apolloProvider.defaultClient.query(
-            { query: accessToken, prefetch: true }
+          { query: accessToken, prefetch: true }
         )
 
         // ToDo: Convert date in readable format and pass it to data
@@ -175,7 +175,7 @@
         //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
         // }
         return { accessToken: data.allInstagramTokens[0].accessToken }
-        }
+      }
     },
     head () {
       return {

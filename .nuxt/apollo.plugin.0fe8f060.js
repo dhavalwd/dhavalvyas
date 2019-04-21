@@ -10,17 +10,14 @@ export default (ctx) => {
   const providerOptions = { clients: {} }
   const { isDev, app, route, beforeNuxtRender, store } = ctx
 
-  
     // *** default Apollo client ***
-    
+
     let defaultClientConfig = require('~/apollo/client-configs/default.js')
     // es6 module default export or not
     defaultClientConfig = defaultClientConfig.default(ctx) || defaultClientConfig(ctx)
 
-    
     const defaultCache = defaultClientConfig.cache || new InMemoryCache()
 
-    
     const defaultOpts = process.server ? {
       ssrMode: true
     } : {
@@ -33,14 +30,10 @@ export default (ctx) => {
       defaultCache.restore(window.__NUXT__ ? window.__NUXT__.apollo.defaultClient : null)
     }
 
-    
     const defaultFinalOpts = Object.assign({}, defaultOpts, defaultClientConfig, { defaultCache })
     const defaultClient = new ApolloClient(defaultFinalOpts)
 
-    
       providerOptions.defaultClient = defaultClient
-    
-  
 
   const apolloProvider = new VueApollo(providerOptions)
   // Allow access to the provider in the context

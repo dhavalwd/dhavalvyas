@@ -24,8 +24,10 @@
             <template slot="card-title">NSLC Cannabis</template>
             <template slot="card-subtitle">@T4G</template>
             <div slot="card-content" class="cardContent">
-                <p>Front End Build Script to generate HTML, CSS and bundled JS</p>
-                <p>Major functionalities: Search Results page, Product Listing page</p>
+                <ul>
+                  <li>Front End Build Script to generate HTML, CSS and bundled JS</li>
+                  <li>Major functionalities: Search Results page, Product Listing page</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">HTML (Pug)</span>
                   <span class="tag">Javascript (ES6)</span>
@@ -54,8 +56,10 @@
             <template slot="card-title">Crombie REIT</template>
             <template slot="card-subtitle">@T4G</template>
             <div slot="card-content" class="cardContent">
-                <p>AirBnb style Google Map functionality</p>
-                <p>Individual property page with Google Map Street view in slider</p>
+                <ul>
+                  <li>AirBnb style Google Map functionality</li>
+                  <li>Individual property page with Google Map Street view in slider</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Drupal 8</span>
                   <span class="tag">HTML (Pug)</span>
@@ -97,8 +101,10 @@
             <template slot="card-title">Jazz Aviation LP</template>
             <template slot="card-subtitle">@Famous Folks</template>
             <div slot="card-content" class="cardContent">
-                <p>Heavy animation functionality based on user's scroll position using Greensock</p>
-                <p>Major functionalities: Animation on user's scroll, Our Fleet</p>
+                <ul>
+                  <li>Heavy animation functionality based on user's scroll position using Greensock</li>
+                  <li>Major functionalities: Animation on user's scroll, Our Fleet</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -108,6 +114,39 @@
                 </div>
             </div>
             <template slot="card-link"><a href="http://flyjazz.ca/" target="_blank"></a></template>
+          </card>
+        </div>
+        <div class="Project-column">
+          <card>
+            <no-ssr slot="card-image">
+              <slick ref="slick" :options="slickOptions">
+                <div>
+                  <img src="~/assets/images/projects/dhaval-1.jpg" alt="Dhaval Vyas">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/dhaval-2.jpg" alt="Dhaval Vyas">
+                </div>
+                <div>
+                  <img src="~/assets/images/projects/dhaval-3.jpg" alt="Dhaval Vyas">
+                </div>
+              </slick>
+            </no-ssr>
+            <template slot="card-title">Dhaval Vyas</template>
+            <template slot="card-subtitle">@DhavalVyas</template>
+            <div slot="card-content" class="cardContent">
+                <ul>
+                  <li>Designing and developing complete site using new JS framework - Vue.js</li>
+                  <li>Hosting site on Netlify and handling CI / CD using Github branches</li>
+                </ul>
+                <div class="tags">
+                  <span class="tag">Vue.js</span>
+                  <span class="tag">Sass</span>
+                  <span class="tag">Nuxt.js</span>
+                  <span class="tag">GraphCMS</span>
+                  <span class="tag">Netlify</span>
+                </div>
+            </div>
+            <template slot="card-link"><a href="https://dhavalvyas.me/" target="_blank"></a></template>
           </card>
         </div>
         <div class="Project-column">
@@ -129,10 +168,12 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Garden Gangsters</template>
-            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <template slot="card-subtitle">@Famous Folks</template>
             <div slot="card-content" class="cardContent">
-                <p>Smooth page transition when user navigates to different pages of the site</p>
-                <p>Dynamic open / closed functionality in footer</p>
+                <ul>
+                  <li>Smooth page transition when user navigates to different pages of the site</li>
+                  <li>Dynamic open / closed functionality in footer</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -162,10 +203,12 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Cadilac Fairview</template>
-            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <template slot="card-subtitle">@Famous Folks</template>
             <div slot="card-content" class="cardContent">
-                <p>AirBnb style map view for Property listing</p>
-                <p>3D model for property availability</p>
+                <ul>
+                  <li>AirBnb style map view for Property listing</li>
+                  <li>3D model for property availability</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -191,10 +234,12 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Grand Pre 2017</template>
-            <template slot="card-subtitle">@Famous Folks (2016)</template>
+            <template slot="card-subtitle">@Famous Folks</template>
             <div slot="card-content" class="cardContent">
-                <p>Animated elements on home page usgin Scrollmagic and Tweenmax</p>
-                <p>Easy to read layout for Schedule page</p>
+                <ul>
+                  <li>Animated elements on home page usgin Scrollmagic and Tweenmax</li>
+                  <li>Easy to read layout for Schedule page</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -226,9 +271,11 @@
               </slick>
             </no-ssr>
             <template slot="card-title">Blue Elephant Marketing & Design</template>
-            <template slot="card-subtitle">@Famous Folks (2017)</template>
+            <template slot="card-subtitle">@Famous Folks</template>
             <div slot="card-content" class="cardContent">
-                <p>Initial built up for the site</p>
+                <ul>
+                  <li>Initial built up for the site</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -239,7 +286,7 @@
             <template slot="card-link"><a href="http://bemarketing.ca/" target="_blank"></a></template>
           </card>
         </div>
-        <!-- <div class="Project-column">
+        <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
               <slick ref="slick" :options="slickOptions">
@@ -255,9 +302,11 @@
               </slick>
             </no-ssr>
             <template slot="card-title">CANDAC</template>
-            <template slot="card-subtitle">@CANDAC (2014)</template>
+            <template slot="card-subtitle">@CANDAC</template>
             <div slot="card-content" class="cardContent">
-                <p>Initial built up for the site</p>
+                <ul>
+                  <li>Initial built up for the site</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -267,7 +316,7 @@
             </div>
             <template slot="card-link"><a href="http://candac.ca/" target="_blank"></a></template>
           </card>
-        </div> -->
+        </div>
         <!-- <div class="Project-column">
           <card>
             <no-ssr slot="card-image">
@@ -286,8 +335,6 @@
             <template slot="card-title">Kier Group PLC</template>
             <template slot="card-subtitle">@Investis (2011)</template>
             <div slot="card-content" class="cardContent">
-                <p>Large website with multiple functionalities</p>
-                <p></p>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>
@@ -314,9 +361,11 @@
               </slick>
             </no-ssr>
             <template slot="card-title">ArcelorMittal Corporate</template>
-            <template slot="card-subtitle">@Investis (2010)</template>
+            <template slot="card-subtitle">@Investis</template>
             <div slot="card-content" class="cardContent">
-                <p>Large website with multiple functionalities</p>
+                <ul>
+                  <li>Large website with multiple functionalities</li>
+                </ul>
                 <div class="tags">
                   <span class="tag">Javascript</span>
                   <span class="tag">CSS</span>

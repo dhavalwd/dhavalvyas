@@ -59,8 +59,10 @@
                   <template slot="card-title">NSLC Cannabis</template>
                   <template slot="card-subtitle">@T4G</template>
                   <div slot="card-content" class="cardContent">
-                      <p>Front End Build Script to generate HTML, CSS and bundled JS</p>
-                      <p>Major functionalities: Search Results page, Product Listing page</p>
+                      <ul>
+                        <li>Front End Build Script to generate HTML, CSS and bundled JS</li>
+                        <li>Major functionalities: Search Results page, Product Listing page</li>
+                      </ul>
                       <div class="tags">
                         <span class="tag">HTML (Pug)</span>
                         <span class="tag">Javascript (ES6)</span>
@@ -89,8 +91,10 @@
                   <template slot="card-title">Crombie REIT</template>
                   <template slot="card-subtitle">@T4G</template>
                   <div slot="card-content" class="cardContent">
-                      <p>AirBnb style Google Map functionality</p>
-                      <p>Individual property page with Google Map Street view in slider</p>
+                      <ul>  
+                        <li>AirBnb style Google Map functionality</li>
+                        <li>Individual property page with Google Map Street view in slider</li>
+                      </ul>
                       <div class="tags">
                         <span class="tag">Drupal 8</span>
                         <span class="tag">HTML (Pug)</span>
@@ -106,7 +110,6 @@
             <div class="has-text-centered">
               <router-link class="button is-dominant" :to="{ path: `/projects`}">View All Projects</router-link>
             </div>
-            <!-- <a class="button is-dominant" target="" title="PDF, opens in a new window" href="/files/resume.pdf" slot="subtitle">View All</a> -->
           </div>
         </div>
       </section>

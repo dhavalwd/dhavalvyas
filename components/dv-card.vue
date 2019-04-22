@@ -55,12 +55,17 @@
   }
 
   .content {
-      p {
-          margin-bottom: 8px;
+      ul {
+          margin: 0;
+          padding: 0;
+          li {
+              list-style: none;
+            margin-bottom: 8px;
 
-          &:before {
-              content: '-';
-              padding-right: 4px;
+            &:before {
+                content: '-';
+                padding-right: 4px;
+            }   
           }
       }
 

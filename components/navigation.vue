@@ -10,7 +10,7 @@
         </a>
         <ul class="Main_Navigation-links">
             <li><nuxt-link @click.native='toggleMenu' to='/'><span>Home</span> <font-awesome-icon icon="home" /></nuxt-link></li>
-            <!-- <li><nuxt-link @click.native='toggleMenu' to='/blog'><span>Blog</span> <font-awesome-icon icon="book" /></nuxt-link></li> -->
+            <li><nuxt-link @click.native='toggleMenu' to='/blog'><span>Blog</span> <font-awesome-icon icon="book" /></nuxt-link></li>
             <li><nuxt-link @click.native='toggleMenu' to='/about'><span>About</span> <font-awesome-icon icon="user" /></nuxt-link></li>
             <li><nuxt-link @click.native='toggleMenu' to='/projects'><span>Projects</span> <font-awesome-icon icon="th-large" /></nuxt-link></li>
         </ul>

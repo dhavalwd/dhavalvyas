@@ -189,7 +189,9 @@
         // for (let i = 0; i < data.allPosts.length; i++) {
         //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
         // }
-        return { posts: data.allPosts }
+        return { 
+          posts: data.posts
+        }
       }
     },
     data () {

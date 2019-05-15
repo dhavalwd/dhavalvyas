@@ -1,5 +1,5 @@
 {
-  allInstagramTokens(first: 1) {
+  instagramTokens(first: 1) {
     id,
     accessToken
   }

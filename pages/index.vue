@@ -236,6 +236,11 @@
   }
 
   // Recent Posts
+  .Recent_Posts-title {
+    h2 {
+      text-align: center;
+    }
+  }
   .Recent_Posts-details {
     display: flex;
     flex-flow: row; 

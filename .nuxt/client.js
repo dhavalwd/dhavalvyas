@@ -18,6 +18,7 @@ import {
 } from './utils.js'
 import { createApp, NuxtError } from './index.js'
 import NuxtLink from './components/nuxt-link.client.js' // should be included after ./index.js
+import consola from 'consola'
 
 // Component: <NuxtLink>
 Vue.component(NuxtLink.name, NuxtLink)
@@ -35,6 +36,11 @@ let store
 const NUXT = window.__NUXT__ || {}
 
 Object.assign(Vue.config, {"silent":false,"performance":true})
+
+const logger = consola.withScope('nuxt:ssr')
+const logs = NUXT.logs || []
+logs.forEach(logObj => logger[logObj.type](logObj))
+delete NUXT.logs
 
 // Setup global Vue error handler
 if (!Vue.config.$nuxt) {

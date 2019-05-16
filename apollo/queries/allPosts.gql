@@ -1,6 +1,6 @@
 {
-  allPosts(
-    filter: {isPublished: true},
+  posts(
+    where: {status: PUBLISHED},
     orderBy: createdAt_DESC
   ) {
     id,

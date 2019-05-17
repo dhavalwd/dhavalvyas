@@ -174,7 +174,7 @@
         // for (let i = 0; i < data.allPosts.length; i++) {
         //   data.allPosts[i].dateAndTime = new Date(data.allPosts[i].dateAndTime).toDateString()
         // }
-        return { accessToken: data.allInstagramTokens[0].accessToken }
+        return { accessToken: data.instagramTokens[0].accessToken }
       }
     },
     head () {

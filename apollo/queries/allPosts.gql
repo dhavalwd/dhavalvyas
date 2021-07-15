@@ -1,16 +1,13 @@
 {
-  posts(
-    where: {status: PUBLISHED},
-    orderBy: createdAt_DESC
-  ) {
-    id,
-    title,
-    slug,
-    dateAndTime,
-    tags,
-    postShortDescription,
+  posts(stage: PUBLISHED, orderBy: createdAt_DESC) {
+    id
+    title
+    slug
+    dateAndTime
+    tags
+    postShortDescription
     coverImage {
-      id,
+      id
       url
     }
   }
